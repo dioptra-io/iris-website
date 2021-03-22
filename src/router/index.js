@@ -1,5 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Index from '../views/Index.vue'
+import Login from '../views/Login.vue'
+import PageNotFound from '../views/404.vue'
+import Profile from '../views/Profile.vue'
 
 const routes = [
   {
@@ -8,18 +12,42 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/index',
+    name: 'Index',
+    component: Index
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: PageNotFound
+  },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/', '/index', '/login', '/404'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  if (authRequired && !loggedIn) {
+    next('/404');
+  } else {
+    next();
+  }
+});
 
 export default router

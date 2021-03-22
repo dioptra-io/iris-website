@@ -1,4 +1,4 @@
-# vue-uikit
+# Iris Website
 
 ## Project setup
 ```
