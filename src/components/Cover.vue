@@ -8,15 +8,14 @@
     >
       <div class="uk-width-1-1">
         <div class="uk-container">
-          <!-- <p>
-            <canvas
-              style="color: #fff"
-              width="168"
-              height="155"
-              uk-svg
-              src="./images/uikit-logo-large.svg"
-            ></canvas>
-          </p> -->
+          <p>
+            <img
+              src="../assets/images/dioptra-logo.svg"
+              width="200"
+              height="200"
+              alt="Dioptra logo"
+            />
+          </p>
 
           <!-- <h1 class="uk-heading-large">Iris</h1> -->
 

@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  website:
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.website.entrypoints=web"
+      - "traefik.http.routers.website.rule=Host(`iris.docker.localhost`)"
+
+  ostatic:
+    image: matthieugouel/ostatic
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ostatic.entrypoints=web"
+      - "traefik.http.routers.ostatic.rule=Host(`iris.docker.localhost`) && PathPrefix(`/data`)"
+      - "traefik.http.routers.ostatic.middlewares=ostatic_stripprefix@docker"
+      - "traefik.http.middlewares.ostatic_stripprefix.stripprefix.prefixes=/data"
+    environment:
+      OSTATIC_BACKEND_ROUTE: "http://iris.docker.localhost/api/profile"
+      OSTATIC_CORS_ALLOW_ORIGIN: "http://localhost:8081"
+    volumes:
+      - "./measurements:/app/static"
+
+networks:
+  default:
+    external:
+      name: "iris_default"

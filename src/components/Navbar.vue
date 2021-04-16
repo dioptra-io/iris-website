@@ -4,13 +4,12 @@
       <nav class="uk-navbar">
         <div class="uk-navbar-left">
           <router-link class="uk-navbar-item uk-logo" to="/">
-            <!-- <canvas
-              class="uk-margin-small-right"
-              width="28"
-              height="34"
-              uk-svg
-              src="./images/uikit-logo.svg"
-            ></canvas> -->
+            <img
+              src="../assets/images/dioptra-logo.svg"
+              width="30"
+              height="30"
+              alt="Dioptra logo"
+            />
             Iris
           </router-link>
         </div>
