@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
+import Measurements from '../views/Measurements.vue'
 import PageNotFound from '../views/404.vue'
 import Profile from '../views/Profile.vue'
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/measurements',
+    name: 'Measurements',
+    component: Measurements
   },
   {
     path: '/profile',
