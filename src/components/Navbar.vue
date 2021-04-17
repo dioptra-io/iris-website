@@ -22,6 +22,7 @@
 
           <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
             <li><a href="/#/measurements">Measurements</a></li>
+            <li><a href="/#/profile">Profile</a></li>
             <li><a href @click.prevent="logOut">LogOut</a></li>
           </ul>
 

@@ -22,7 +22,13 @@
             :key="measurement.start_time"
           >
             <td>
-              <a>{{ measurement.uuid }}</a>
+              <router-link
+                :to="{
+                  name: 'MeasurementOverview',
+                  params: { uuid: measurement.uuid },
+                }"
+                >{{ measurement.uuid }}</router-link
+              >
             </td>
             <td>{{ measurement.tool }}</td>
             <td>
@@ -55,17 +61,18 @@ export default {
     };
   },
   mounted() {
-    this.polling = setInterval(
-      function () {
-        MeasurementService.getMeasurements().then((response) => {
-          this.content = response.data;
-        });
-      }.bind(this),
-      1000
-    );
+    this.fetchMeasurements();
+    this.polling = setInterval(this.fetchMeasurements, 10000);
   },
   beforeUnmount() {
     clearInterval(this.polling);
+  },
+  methods: {
+    fetchMeasurements() {
+      MeasurementService.getMeasurements().then((response) => {
+        this.content = response.data;
+      });
+    },
   },
 };
 </script>

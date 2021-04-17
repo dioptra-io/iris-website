@@ -10,6 +10,13 @@ class MeasurementService {
         );
     }
 
+    getMeasurement(uuid) {
+        return axios.get(
+            process.env.VUE_APP_BACKEND_URL + '/measurements/' + uuid,
+            { headers: authHeader() }
+        );
+    }
+
 
 }
 
