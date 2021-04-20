@@ -10,7 +10,7 @@
               height="30"
               alt="Dioptra logo"
             />
-            Iris
+            Diptra Data
           </router-link>
         </div>
 

@@ -18,7 +18,7 @@
           </p>
 
           <!-- <h1 class="uk-heading-large">Iris</h1> -->
-
+          <h1><strong>Iris</strong></h1>
           <p class="uk-margin-medium uk-text-lead">
             A resilient reinforcement learning approach
             <br class="uk-visible@s" />
@@ -67,7 +67,7 @@
           uk-margin
         >
           <li>
-            <span>Version 0.6.0</span>
+            <span>Version 0.1.0</span>
           </li>
           <!-- <li>
             <a href="https://github.com/uikit/uikit/stargazers"
@@ -75,14 +75,12 @@
               ><span uikit-stargazers>13728</span> Stargazers</a
             >
           </li> -->
-          <!-- <li>
-            <a
-              class="uk-text-lowercase"
-              href="https://twitter.com/matthieugouel"
+          <li>
+            <a class="uk-text-lowercase" href="https://twitter.com/dioptraTech"
               ><span class="uk-margin-small-right" uk-icon="twitter"></span
-              >@matthieugouel</a
+              >@dioptraTech</a
             >
-          </li> -->
+          </li>
           <!-- <li>
             <a href="https://discordapp.com/invite/NEt4Pv7"
               ><span class="uk-margin-small-right" uk-icon="commenting"></span

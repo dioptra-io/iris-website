@@ -7,72 +7,46 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <table class="uk-table uk-table-justify uk-table-divider">
-        <thead>
-          <tr>
-            <th>UUID</th>
-            <th>Tool</th>
-            <th>Time</th>
-            <th>State</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="measurement in content.results"
-            :key="measurement.start_time"
+      <ul uk-tab>
+        <li class="uk-active">
+          <router-link
+            :to="{
+              name: 'Measurements',
+              params: { vue: 'full' },
+            }"
+            >Full</router-link
           >
-            <td>
-              <router-link
-                :to="{
-                  name: 'MeasurementOverview',
-                  params: { uuid: measurement.uuid },
-                }"
-                >{{ measurement.uuid }}</router-link
-              >
-            </td>
-            <td>{{ measurement.tool }}</td>
-            <td>
-              {{ measurement.start_time }}<br />{{ measurement.end_time }}
-            </td>
-            <td>
-              <div v-if="measurement.state === 'finished'">
-                <span uk-icon="icon: check"></span>
-              </div>
-              <div v-else>
-                <span uk-icon="icon: future"></span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        </li>
+        <li>
+          <router-link
+            :to="{
+              name: 'Measurements',
+              params: { vue: 'mine' },
+            }"
+            >Mine</router-link
+          >
+        </li>
+      </ul>
+
+      <full-measurement
+        v-if="$route.params.vue === undefined || $route.params.vue === 'full'"
+      ></full-measurement>
+      <my-measurements v-if="$route.params.vue === 'mine'"></my-measurements>
     </div>
   </div>
 </template>
 
 <script>
-import MeasurementService from "../services/measurement.service";
+import FullMeasurement from "@/components/FullMeasurement.vue";
+import MyMeasurements from "@/components/MyMeasurements.vue";
 
 export default {
-  name: "Measurements",
-  data() {
-    return {
-      polling: null,
-      content: "",
-    };
-  },
-  mounted() {
-    this.fetchMeasurements();
-    this.polling = setInterval(this.fetchMeasurements, 10000);
-  },
-  beforeUnmount() {
-    clearInterval(this.polling);
-  },
-  methods: {
-    fetchMeasurements() {
-      MeasurementService.getMeasurements().then((response) => {
-        this.content = response.data;
-      });
-    },
+  name: "Mesurements",
+  components: {
+    FullMeasurement,
+    MyMeasurements,
   },
 };
 </script>
+
+    FullMeasurement

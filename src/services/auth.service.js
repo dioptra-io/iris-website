@@ -21,13 +21,13 @@ class AuthService {
         localStorage.removeItem('user');
     }
 
-    register(user) {
-        return axios.post(process.env.VUE_APP_BACKEND_URL + '/signup', {
-            username: user.username,
-            email: user.email,
-            password: user.password
-        });
-    }
+    // register(user) {
+    //     return axios.post(process.env.VUE_APP_BACKEND_URL + '/signup', {
+    //         username: user.username,
+    //         email: user.email,
+    //         password: user.password
+    //     });
+    // }
 }
 
 export default new AuthService();

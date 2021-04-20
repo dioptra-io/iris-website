@@ -4,6 +4,7 @@ import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
 import Measurements from '../views/Measurements.vue'
 import MeasurementOverview from '../views/MeasurementOverview.vue'
+import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
 import Profile from '../views/Profile.vue'
 
@@ -26,12 +27,17 @@ const routes = [
   {
     path: '/measurements',
     name: 'Measurements',
-    component: Measurements
+    component: Measurements,
   },
   {
     path: '/measurements/:uuid',
     name: 'MeasurementOverview',
     component: MeasurementOverview
+  },
+  {
+    path: '/new',
+    name: 'NewMeasurement',
+    component: NewMeasurement,
   },
   {
     path: '/profile',
