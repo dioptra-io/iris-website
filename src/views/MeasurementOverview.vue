@@ -8,8 +8,30 @@
       <div style="padding-top: 50px"></div>
 
       <div class="uk-card uk-card-default uk-card-body">
-        <p>UUID: {{ measurement.uuid }}</p>
-        <p>Tool: {{ measurement.tool }}</p>
+        <table class="uk-table uk-table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UUID</td>
+              <td>{{ measurement.uuid }}</td>
+            </tr>
+            <tr>
+              <td>Tool</td>
+              <td>{{ measurement.tool }}</td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td>
+                {{ measurement.start_time }}<br />{{ measurement.end_time }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <div
           style="display: inline-table"
           v-for="tag in measurement.tags"
@@ -30,15 +52,62 @@
             agent.parameters.hostname
           }}</a>
           <div class="uk-accordion-content">
-            <p>Protocol: {{ agent.specific.tool_parameters.protocol }}</p>
-            <p>Min TTL: {{ agent.specific.tool_parameters.min_ttl }}</p>
-            <p>Max TTL: {{ agent.specific.tool_parameters.max_ttl }}</p>
+            <table class="uk-table uk-table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>UUID</td>
+                  <td>{{ agent.uuid }}</td>
+                </tr>
+                <tr>
+                  <td>Targets file</td>
+                  <td>{{ agent.specific.targets_file }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>Tool Parameters</h4>
+            <table class="uk-table uk-table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="(value, key) in agent.specific.tool_parameters"
+                  v-bind:key="key"
+                >
+                  <td>{{ key }}</td>
+                  <td>{{ value }}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4>Agent Parameters</h4>
+            <table class="uk-table uk-table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(value, key) in agent.parameters" v-bind:key="key">
+                  <td>{{ key }}</td>
+                  <td>{{ value }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </li>
       </ul>
-
-      <hr class="uk-margin-large" />
-      <p>{{ measurement }}</p>
     </div>
   </div>
 </template>
