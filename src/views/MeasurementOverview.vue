@@ -21,11 +21,11 @@
               <td>{{ measurement.uuid }}</td>
             </tr>
             <tr>
-              <td>Tool</td>
+              <td>tool</td>
               <td>{{ measurement.tool }}</td>
             </tr>
             <tr>
-              <td>Time</td>
+              <td>time</td>
               <td>
                 {{ measurement.start_time }}<br />{{ measurement.end_time }}
               </td>

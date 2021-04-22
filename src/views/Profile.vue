@@ -7,13 +7,29 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <article class="uk-article">
-        <h1 class="uk-article-title">Welcome, {{ profile.username }} !</h1>
-        <p class="uk-article-meta">Your email is {{ profile.email }}.</p>
-      </article>
-
-      <hr class="uk-margin-large" />
-      <p>{{ profile }}</p>
+      <h4>General</h4>
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>username</td>
+            <td>{{ profile.username }}</td>
+          </tr>
+          <tr>
+            <td>email</td>
+            <td>{{ profile.email }}</td>
+          </tr>
+          <tr>
+            <td>quota</td>
+            <td>{{ profile.quota }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
