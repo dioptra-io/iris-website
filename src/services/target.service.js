@@ -5,7 +5,7 @@ import authHeader from './auth-header';
 class TargetService {
     getTargets() {
         return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/targets',
+            process.env.VUE_APP_BACKEND_URL + '/targets/',
             { headers: authHeader() }
         ).then(response => {
             return response;

@@ -5,7 +5,7 @@ import authHeader from './auth-header';
 class OstaticService {
     get_token() {
         return axios
-            .get(process.env.VUE_APP_OSTATIC_URL + '/token', { headers: authHeader() })
+            .get(process.env.VUE_APP_OSTATIC_URL + '/token/', { headers: authHeader() })
             .then(response => {
                 if (response.data.access_token) {
                     return response.data.access_token;

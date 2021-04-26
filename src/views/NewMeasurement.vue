@@ -44,9 +44,8 @@
                     class="uk-radio"
                     type="radio"
                     v-model="selectedTarget"
-                    v-bind:value="target.key"
-                  />
-                  {{ target.key }} </label
+                    v-bind:value="target.key" />
+                  {{ target.key }}<br /></label
                 ><br />
               </div>
             </div>

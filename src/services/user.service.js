@@ -5,7 +5,7 @@ import authHeader from './auth-header';
 class UserService {
     getProfile() {
         return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/profile',
+            process.env.VUE_APP_BACKEND_URL + '/profile/',
             { headers: authHeader() }
         ).then(response => {
             return response;

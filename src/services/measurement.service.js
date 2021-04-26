@@ -5,7 +5,7 @@ import authHeader from './auth-header';
 class MeasurementService {
     getMeasurements() {
         return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/measurements?limit=10',
+            process.env.VUE_APP_BACKEND_URL + '/measurements/?limit=10',
             { headers: authHeader() }
         ).then(response => {
             return response;
@@ -29,7 +29,7 @@ class MeasurementService {
 
     postMeasurment(params) {
         return axios
-            .post(process.env.VUE_APP_BACKEND_URL + '/measurements',
+            .post(process.env.VUE_APP_BACKEND_URL + '/measurements/',
                 params,
                 { headers: authHeader() }
             ).then(response => {
