@@ -14,57 +14,57 @@
         height="600"
         alt="Data illustration"
       />
-      <h1 class="uk-article-title">Iris</h1>
 
-      <p class="uk-article-meta">Resilient internet-scale measurement system</p>
+      <h1 class="uk-article-title">Iris</h1>
+      <p class="uk-article-meta">
+        Resilient internet-scale measurement system.
+      </p>
 
       <p class="uk-text-lead" align="justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        Iris is an open-sourced measurement system that aims to produce
+        internet-scale IP-level topologies and gives the possibility to the user
+        to conduct their own measurements with multiple tools. Thanks to its
+        modular API and a resilient design, Iris is able to handle a large
+        number of vantage points with different capabilities.
       </p>
 
       <hr class="uk-margin-large" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Two modes: standalone & constellation
+        Get regular large-scale internet topology datasets.
       </h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        We are using the Iris platform to produce multi vantage points internet
+        scale IP-level topology datasets.
       </p>
+      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
+        >Contact us</a
+      >
 
       <hr class="uk-margin-large" />
-      <h3 class="uk-h3 tm-heading-fragment">IPv4/IPv6 Compatible</h3>
+      <h3 class="uk-h3 tm-heading-fragment">
+        Run your own measurements on the platform.
+      </h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        You can run your own traceroute-like (diamond-miner, yarrp) or ping
+        measurements directly from the website.
       </p>
 
+      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
+        >Contact us</a
+      >
+
       <hr class="uk-margin-large" />
-      <h3 class="uk-h3 tm-heading-fragment">Multiple tools</h3>
+      <h3 class="uk-h3 tm-heading-fragment">Run your own infrastructure.</h3>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        You can either run the standalone version of Iris that allow to easilly
+        perfom measurement via a CLI or run your own multi vantage points
+        infrastructure on your servers.
       </p>
+      <a
+        class="uk-button uk-button-default"
+        href="https://github.com/dioptra-io/iris"
+        >Github</a
+      >
     </article>
 
     <div style="padding-top: 50px"></div>

@@ -20,9 +20,9 @@
           <!-- <h1 class="uk-heading-large">Iris</h1> -->
           <h1><strong>Iris</strong></h1>
           <p class="uk-margin-medium uk-text-lead">
-            A resilient reinforcement learning approach
+            Get access to up to date internet topology data and
             <br class="uk-visible@s" />
-            to distributed IP route tracing.
+            run custom measurements from distributed vantage points.
           </p>
 
           <div
@@ -33,12 +33,12 @@
               <a
                 class="uk-button uk-button-primary tm-button-primary uk-button-large tm-button-large uk-visible@s"
                 href="/#/index"
-                >Get Started</a
+                >Learn more</a
               >
               <a
                 class="uk-button uk-button-primary tm-button-primary uk-hidden@s"
                 href="/#/index"
-                >Get Started</a
+                >Learn more</a
               >
             </div>
             <div>

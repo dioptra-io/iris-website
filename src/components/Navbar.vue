@@ -10,7 +10,7 @@
               height="30"
               alt="Dioptra logo"
             />
-            Diptra Data
+            Dioptra Data
           </router-link>
         </div>
 

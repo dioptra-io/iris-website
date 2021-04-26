@@ -69,8 +69,8 @@
     <div class="uk-modal-dialog uk-modal-body">
       <h2 class="uk-modal-title">Request access</h2>
       <p>
-        You can request to the raw data of this measurement by sending an email
-        to <strong>contact@dioptra.io</strong>.
+        You can request to the raw data of this measurement by sending an
+        <a href="mailto:admins@dioptra.io">email</a>.
       </p>
       <p class="uk-text-right">
         <button
@@ -92,12 +92,7 @@ export default {
   data() {
     return {
       content: "",
-      items: [
-        {
-          resource: "hello.txt",
-          text: "hello",
-        },
-      ],
+      items: [],
     };
   },
   methods: {
