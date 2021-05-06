@@ -38,9 +38,7 @@ class MeasurementService {
                 localStorage.removeItem('user')
                 document.location.href = '/';
             });
-
     }
-
 
 }
 

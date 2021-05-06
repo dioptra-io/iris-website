@@ -34,60 +34,21 @@
             </div>
           </div>
 
-          <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-            <div class="uk-margin">
-              <div class="uk-form-label">Targets</div>
-              <div class="uk-form-controls">
-                <label v-for="target in targets.results" :key="target.key"
-                  ><input
-                    input
-                    class="uk-radio"
-                    type="radio"
-                    v-model="selectedTarget"
-                    v-bind:value="target.key" />
-                  {{ target.key }}<br /></label
-                ><br />
-              </div>
-            </div>
-
-            <div class="uk-margin">
-              <label class="uk-form-label" for="protocol">Protocol</label>
-              <div class="uk-form-controls">
-                <select
-                  class="uk-select"
-                  id="protocol"
-                  v-model="selectedProtocol"
-                >
-                  <option value="icmp">ICMP</option>
-                  <option value="udp">UDP</option>
-                </select>
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="min-ttl">Min TTL</label>
-              <div class="uk-form-controls">
-                <input
-                  class="uk-input"
-                  type="text"
-                  id="min-ttl"
-                  placeholder="Min TTL"
-                  v-model="selectedMinTTL"
-                />
-              </div>
-            </div>
-            <div class="uk-margin">
-              <label class="uk-form-label" for="max-ttl">Max TTL</label>
-              <div class="uk-form-controls">
-                <input
-                  class="uk-input"
-                  type="text"
-                  id="max-ttl"
-                  placeholder="Max TTL"
-                  v-model="selectedMaxTTL"
-                />
-              </div>
+          <div class="uk-margin">
+            <div class="uk-form-label">Targets</div>
+            <div class="uk-form-controls">
+              <label v-for="target in targets.results" :key="target.key"
+                ><input
+                  input
+                  class="uk-radio"
+                  type="radio"
+                  v-model="selectedTarget"
+                  v-bind:value="target.key" />
+                {{ target.key }}<br /></label
+              ><br />
             </div>
           </div>
+
           <div style="padding-top: 20px"></div>
           <button class="uk-button uk-button-secondary" type="submit">
             Create
@@ -115,9 +76,6 @@ export default {
       selectedTool: "diamond-miner",
       selectedAgent: [],
       selectedTarget: "",
-      selectedProtocol: "icmp",
-      selectedMinTTL: 1,
-      selectedMaxTTL: 32,
     };
   },
   mounted() {
@@ -138,16 +96,12 @@ export default {
         agents: [
           {
             uuid: this.selectedAgent[0],
-            targets_file: this.selectedTarget,
-            tool_parameters: {
-              protocol: this.selectedProtocol,
-              min_ttl: this.selectedMinTTL,
-              max_ttl: this.selectedMaxTTL,
-            },
+            target_file: this.selectedTarget,
           },
         ],
         tags: ["website"],
       };
+
       MeasurementService.postMeasurment(params);
       this.$router.push({ name: "Measurements", params: { vue: "mine" } });
     },
