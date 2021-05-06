@@ -66,9 +66,6 @@
           class="uk-subnav tm-subnav uk-flex-inline uk-flex-center uk-margin-remove-bottom"
           uk-margin
         >
-          <li>
-            <span>Version 0.1.0</span>
-          </li>
           <!-- <li>
             <a href="https://github.com/uikit/uikit/stargazers"
               ><span class="uk-margin-small-right" uk-icon="star"></span
@@ -76,9 +73,9 @@
             >
           </li> -->
           <li>
-            <a class="uk-text-lowercase" href="https://twitter.com/dioptraTech"
+            <a class="uk-text-lowercase" href="https://twitter.com/DioptraTech"
               ><span class="uk-margin-small-right" uk-icon="twitter"></span
-              >@dioptraTech</a
+              >@DioptraTech</a
             >
           </li>
           <!-- <li>
