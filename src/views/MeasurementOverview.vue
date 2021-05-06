@@ -65,8 +65,19 @@
                   <td>{{ agent.uuid }}</td>
                 </tr>
                 <tr>
-                  <td>Targets file</td>
-                  <td>{{ agent.specific.targets_file }}</td>
+                  <td>Target file</td>
+                  <td>{{ agent.specific.target_file_content }}</td>
+                </tr>
+                <tr>
+                  <td>Results</td>
+                  <td>
+                    <strong>
+                      GET
+                      {{
+                        backend_url + "/" + measurement.uuid + "/" + agent.uuid
+                      }}
+                    </strong>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -120,6 +131,7 @@ export default {
   data() {
     return {
       measurement: "",
+      backend_url: process.env.VUE_APP_BACKEND_URL,
     };
   },
   mounted() {
