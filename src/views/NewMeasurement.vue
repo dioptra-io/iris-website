@@ -179,8 +179,8 @@ export default {
       };
 
       // Trigger the measurement
-      MeasurementService.postMeasurment(params);
-      this.$router.push({ name: "Measurements", params: { vue: "mine" } });
+      MeasurementService.postMeasurement(params);
+      // this.$router.push({ name: "Measurements", params: { vue: "mine" } });
     },
   },
 };

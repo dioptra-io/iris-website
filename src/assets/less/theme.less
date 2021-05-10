@@ -6,6 +6,15 @@
 
 // Fonts
 @font-face {
+    font-family: 'MontserratLight';
+    src: url('../fonts/Montserrat-Light.woff2') format('woff2'),
+         url('../fonts/Montserrat-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
     font-family: 'ProximaNova';
     src: url('../fonts/ProximaNova-Light-webfont.woff2') format('woff2'),
          url('../fonts/ProximaNova-Light-webfont.woff') format('woff');
@@ -31,14 +40,7 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Montserrat';
-    src: url('../fonts/montserrat-600.woff2') format('woff2'),
-         url('../fonts/montserrat-600.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+
 
 @font-face {
     font-family: 'Roboto Mono';
@@ -53,7 +55,7 @@
 // UIkit
 // ========================================================================
 
-@global-font-family:                            ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@global-font-family:                            MontserratLight, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 @global-font-size:                              15px;
 
 @global-2xlarge-font-size:                      38px;
@@ -63,8 +65,12 @@
 @global-small-font-size:                        14px;
 
 @global-emphasis-color:                         #222;
+@global-muted-color:                            rgb(63, 63, 63);
+
 
 @global-primary-background:                       #ff6337;
+
+
 
 //
 // Base

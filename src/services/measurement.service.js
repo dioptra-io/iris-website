@@ -27,7 +27,7 @@ class MeasurementService {
         });
     }
 
-    postMeasurment(params) {
+    postMeasurement(params) {
         return axios
             .post(process.env.VUE_APP_BACKEND_URL + '/measurements/',
                 params,

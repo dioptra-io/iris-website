@@ -18,7 +18,7 @@
           </p>
 
           <!-- <h1 class="uk-heading-large">Iris</h1> -->
-          <h1><strong>Iris</strong></h1>
+          <h1><strong>Dipotra Data | Iris</strong></h1>
           <p class="uk-margin-medium uk-text-lead">
             Get access to up to date internet topology data and
             <br class="uk-visible@s" />
