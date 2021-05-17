@@ -35,15 +35,12 @@ class TargetService {
                         authHeader(), { 'Content-Type': 'multipart/form-data' }
                     )
                 }
-            ).then(function () {
-                return true;
-
-            }).catch(function (error) {
+            ).catch((error) => {
                 if (error.response.status == 401) {
                     localStorage.removeItem('user')
                     document.location.href = '/';
                 }
-                return false;
+                throw new Error("Invalid file content")
             });
     }
 

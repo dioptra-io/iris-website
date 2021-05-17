@@ -7,6 +7,18 @@
     >New</router-link
   >
 
+  <div style="padding-top: 30px"></div>
+  <ul class="uk-dotnav">
+    <li
+      v-for="page in n_pages"
+      :key="page"
+      v-on:click="setPage(page)"
+      :class="{ current: page == current_page }"
+    >
+      {{ page }}
+    </li>
+  </ul>
+
   <table class="uk-table uk-table-justify uk-table-divider">
     <thead>
       <tr>
@@ -42,6 +54,13 @@
   </table>
 </template>
 
+
+<style scoped>
+.current {
+  color: #ff6337;
+}
+</style>
+
 <script>
 import MeasurementService from "../services/measurement.service";
 
@@ -51,6 +70,9 @@ export default {
     return {
       polling: null,
       content: "",
+      n_pages: 0,
+      n_measurements_per_page: 10,
+      current_page: 1,
     };
   },
   mounted() {
@@ -61,9 +83,26 @@ export default {
     clearInterval(this.polling);
   },
   methods: {
+    setPage(page) {
+      this.current_page = page;
+      this.fetchMeasurements(
+        (this.current_page - 1) * this.n_measurements_per_page
+      );
+    },
     fetchMeasurements() {
-      MeasurementService.getMeasurements().then((response) => {
+      MeasurementService.getMeasurements(
+        (this.current_page - 1) * this.n_measurements_per_page,
+        this.n_measurements_per_page
+      ).then((response) => {
         this.content = response.data;
+        var n_pages = Math.ceil(
+          this.content.count / this.n_measurements_per_page
+        );
+        if (n_pages > 10) {
+          this.n_pages = 10;
+        } else {
+          this.n_pages = n_pages;
+        }
       });
     },
   },

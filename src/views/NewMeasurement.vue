@@ -6,6 +6,17 @@
 
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
+
+      <div v-if="is_submitted" class="uk-alert-success" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>Measurement created</p>
+      </div>
+
+      <div v-if="error" class="uk-alert-warning" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>{{ error }}</p>
+      </div>
+
       <form @submit="handleNew">
         <fieldset class="uk-fieldset">
           <legend class="uk-legend">New Measurement</legend>
@@ -111,6 +122,8 @@ export default {
       selectedTool: "diamond-miner",
       selectedAgents: [],
       targetContent: [{ prefix: "", protocol: "", min_ttl: "", max_ttl: "" }],
+      error: "",
+      is_submitted: false,
     };
   },
   mounted() {
@@ -135,7 +148,7 @@ export default {
     validateTargetContent() {
       for (var i = 0; i < this.targetContent.length; i++) {
         var elements = Object.values(this.targetContent[i]);
-        for (var j = 0; i < elements.length; i++) {
+        for (var j = 0; j < elements.length; j++) {
           if (!elements[j]) {
             return false;
           }
@@ -144,43 +157,54 @@ export default {
 
       return true;
     },
-    handleNew() {
+    handleNew(event) {
+      // Prevent to reload the page
+      event.preventDefault();
+      this.error = "";
+
+      // Check if at least one agent is selected
+      if (!this.selectedAgents[0]) {
+        this.error = "No agent(s) selected";
+        return;
+      }
+
       // Check the values from the table content
       if (!this.validateTargetContent()) {
+        this.error = "Empty target content";
         return;
       }
 
       // Upload a target file from the table content
-      TargetService.postTarget(this.targetContent).then((is_success) => {
-        if (!is_success) {
-          return;
-        }
-      });
+      TargetService.postTarget(this.targetContent)
+        .then(
+          function () {
+            // Create the agents structure
+            var agents = [];
+            this.selectedAgents.forEach((agent) => {
+              agents.push({
+                uuid: agent,
+                target_file: "website.csv",
+              });
+            });
 
-      // Check if at least one agent is selected
-      if (!this.selectedAgents[0]) {
-        return;
-      }
+            // Prepare the measurement parameters
+            var params = {
+              tool: this.selectedTool,
+              agents: agents,
+              tags: ["website"],
+            };
 
-      // Create the agents structure
-      var agents = [];
-      this.selectedAgents.forEach((agent) => {
-        agents.push({
-          uuid: agent,
-          target_file: "website.csv",
-        });
-      });
-
-      // Prepare the measurement parameters
-      var params = {
-        tool: this.selectedTool,
-        agents: agents,
-        tags: ["website"],
-      };
-
-      // Trigger the measurement
-      MeasurementService.postMeasurement(params);
-      // this.$router.push({ name: "Measurements", params: { vue: "mine" } });
+            // Trigger the measurement
+            MeasurementService.postMeasurement(params).then(() => {
+              this.is_submitted = true;
+            });
+          }.bind(this)
+        )
+        .catch(
+          function () {
+            this.error = "Invalid target content";
+          }.bind(this)
+        );
     },
   },
 };
