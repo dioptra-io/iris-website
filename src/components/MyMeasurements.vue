@@ -45,6 +45,9 @@
           <div v-if="measurement.state === 'finished'">
             <span uk-icon="icon: check"></span>
           </div>
+          <div v-else-if="measurement.state === 'canceled'">
+            <span uk-icon="icon: ban"></span>
+          </div>
           <div v-else>
             <div uk-spinner></div>
           </div>

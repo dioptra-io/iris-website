@@ -42,6 +42,20 @@ class MeasurementService {
                 throw new Error("Invalid measurement request")
             });
     }
+    deleteMeasurement(uuid) {
+        return axios.delete(
+            process.env.VUE_APP_BACKEND_URL + '/measurements/' + uuid,
+            { headers: authHeader() }
+        ).then(response => {
+            return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/';
+            }
+            throw new Error("Measurement already finished")
+        });
+    }
 
 }
 

@@ -7,6 +7,11 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
+      <div v-if="is_canceled" class="uk-alert-success" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>Measurement canceled</p>
+      </div>
+
       <div class="uk-card uk-card-default uk-card-body">
         <table class="uk-table uk-table-striped">
           <thead>
@@ -18,11 +23,24 @@
           <tbody>
             <tr>
               <td>UUID</td>
-              <td>{{ measurement.uuid }}</td>
+              <td>
+                {{ measurement.uuid }}
+                <button
+                  v-if="measurement.state === 'ongoing'"
+                  v-on:click="cancelMeasurement()"
+                  class="uk-button uk-button-danger uk-button-small uk-align-right"
+                >
+                  Cancel
+                </button>
+              </td>
             </tr>
             <tr>
               <td>tool</td>
               <td>{{ measurement.tool }}</td>
+            </tr>
+            <tr>
+              <td>state</td>
+              <td>{{ measurement.state }}</td>
             </tr>
             <tr>
               <td>time</td>
@@ -132,6 +150,7 @@ export default {
     return {
       measurement: "",
       backend_url: process.env.VUE_APP_BACKEND_URL,
+      is_canceled: false,
     };
   },
   mounted() {
@@ -144,6 +163,11 @@ export default {
           this.measurement = response.data;
         }
       );
+    },
+    cancelMeasurement() {
+      MeasurementService.deleteMeasurement(this.measurement.uuid).then(() => {
+        this.is_canceled = true;
+      });
     },
   },
 };
