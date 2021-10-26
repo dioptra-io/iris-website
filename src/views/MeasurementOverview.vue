@@ -26,9 +26,11 @@
               <td>
                 {{ measurement.uuid }}
                 <button
-                  v-if="measurement.state === 'ongoing'"
+                  v-if="measurement.state !== 'finished'"
                   v-on:click="cancelMeasurement()"
-                  class="uk-button uk-button-danger uk-button-small uk-align-right"
+                  class="
+                    uk-button uk-button-danger uk-button-small uk-align-right
+                  "
                 >
                   Cancel
                 </button>

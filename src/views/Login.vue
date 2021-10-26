@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="uk-section-primary tm-section-texture">
+    <div class="uk-section-primary tm-section-texture" uk-sticky>
       <navbar class="uk-navbar-transparent" />
     </div>
+
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 

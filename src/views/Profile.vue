@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="uk-section-primary tm-section-texture">
+    <div class="uk-section-primary tm-section-texture" uk-sticky>
       <navbar class="uk-navbar-transparent" />
     </div>
 
