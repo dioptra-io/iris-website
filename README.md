@@ -1,4 +1,7 @@
-# Iris Website
+# 🏛️ Iris Website
+
+Website for Iris.
+
 
 ## Project setup
 ```
