@@ -6,7 +6,8 @@ import Measurements from '../views/Measurements.vue'
 import MeasurementOverview from '../views/MeasurementOverview.vue'
 import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
-import Profile from '../views/Profile.vue'
+import Register from '../views/Register.vue'
+import User from '../views/User.vue'
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     component: Login
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
     path: '/measurements',
     name: 'Measurements',
     component: Measurements,
@@ -41,8 +47,8 @@ const routes = [
   },
   {
     path: '/profile',
-    name: 'Profile',
-    component: Profile
+    name: 'User',
+    component: User
   },
   {
     path: '/404',
@@ -57,7 +63,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const publicPages = ['/', '/index', '/login', '/404'];
+  const publicPages = ['/', '/index', '/login', '/register', '/404'];
   const authRequired = !publicPages.includes(to.path);
   const loggedIn = localStorage.getItem('user');
 

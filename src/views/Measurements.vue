@@ -13,39 +13,47 @@
             class="uk-active"
             :to="{
               name: 'Measurements',
+              params: { vue: 'public' },
+            }"
+            >Public</router-link
+          >
+        </li>
+        <li v-show="probingEnabled">
+          <router-link
+            :to="{
+              name: 'Measurements',
               params: { vue: 'mine' },
             }"
             >Mine</router-link
           >
         </li>
-        <!-- <li>
-          <router-link
-            :to="{
-              name: 'Measurements',
-              params: { vue: 'full' },
-            }"
-            >Full</router-link
-          >
-        </li> -->
       </ul>
 
-      <my-measurements
-        v-if="$route.params.vue === undefined || $route.params.vue === 'mine'"
-      ></my-measurements>
-      <!-- <full-measurement v-if="$route.params.vue === 'full'"></full-measurement> -->
+      <public-measurements
+        v-if="$route.params.vue === undefined || $route.params.vue === 'public'"
+      ></public-measurements>
+      <my-measurements v-if="$route.params.vue === 'mine'"></my-measurements>
     </div>
   </div>
 </template>
 
 <script>
 import MyMeasurements from "@/components/MyMeasurements.vue";
-// import FullMeasurement from "@/components/FullMeasurement.vue";
+import PublicMeasurements from "@/components/PublicMeasurements.vue";
 
 export default {
   name: "Mesurements",
   components: {
+    PublicMeasurements,
     MyMeasurements,
-    // FullMeasurement,
+  },
+  computed: {
+    probingEnabled() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.probing_enabled;
+    },
   },
 };
 </script>

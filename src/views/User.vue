@@ -17,16 +17,36 @@
         </thead>
         <tbody>
           <tr>
-            <td>username</td>
-            <td>{{ profile.username }}</td>
+            <td>firstname</td>
+            <td>{{ user.firstname }}</td>
+          </tr>
+          <tr>
+            <td>lastname</td>
+            <td>{{ user.lastname }}</td>
           </tr>
           <tr>
             <td>email</td>
-            <td>{{ profile.email }}</td>
+            <td>{{ user.email }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Probing capabilities</h4>
+      <table class="uk-table uk-table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>enabled</td>
+            <td>{{ user.probing_enabled }}</td>
           </tr>
           <tr>
-            <td>quota</td>
-            <td>{{ profile.quota }}</td>
+            <td>limit</td>
+            <td>{{ user.probing_limit }}</td>
           </tr>
         </tbody>
       </table>
@@ -41,12 +61,12 @@ export default {
   name: "User",
   data() {
     return {
-      profile: "",
+      user: "",
     };
   },
   mounted() {
-    UserService.getProfile().then((response) => {
-      this.profile = response.data;
+    UserService.getUser().then((response) => {
+      this.user = response.data;
     });
   },
 };

@@ -18,10 +18,13 @@
           <ul v-show="!loggedIn" class="uk-navbar-nav uk-visible@m">
             <li><a href="/#/login">Login</a></li>
             <!-- <router-link to="/login" tag="li"><a>Login</a></router-link> -->
+            <li><a href="/#/register">Register</a></li>
           </ul>
 
           <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
-            <li><a href="/#/measurements">Measurements</a></li>
+            <li v-show="verified">
+              <a href="/#/measurements">Measurements</a>
+            </li>
             <li><a href="/#/profile">Profile</a></li>
             <li><a href @click.prevent="logOut">LogOut</a></li>
           </ul>
@@ -43,6 +46,12 @@ export default {
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
+    },
+    verified() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.is_verified;
     },
   },
   methods: {

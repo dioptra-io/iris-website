@@ -18,7 +18,7 @@ class TargetService {
     postTarget(targetContent) {
         var content = "";
         targetContent.forEach(target => {
-            content += Object.values(target).join(",") + "\n";
+            content += Object.values(target).join(",") + ",6" + "\n";
         });
 
         const blob = new Blob([content], { type: "text/plain" });

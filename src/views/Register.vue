@@ -14,8 +14,32 @@
         </p>
       </div>
 
-      <form @submit.prevent="handleLogin">
+      <form @submit.prevent="handleRegister">
         <fieldset class="uk-fieldset">
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <input
+                class="uk-input"
+                type="text"
+                id="firstname"
+                placeholder="First name"
+                v-model="user.firstname"
+              />
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <div class="uk-inline">
+              <input
+                class="uk-input"
+                type="text"
+                id="lastname"
+                placeholder="Last name"
+                v-model="user.lastname"
+              />
+            </div>
+          </div>
+
           <div class="uk-margin">
             <div class="uk-inline">
               <input
@@ -41,7 +65,7 @@
           </div>
 
           <button class="uk-button uk-button-default" type="submit">
-            Login
+            Register
           </button>
         </fieldset>
       </form>
@@ -54,7 +78,7 @@
 import User from "../models/user";
 
 export default {
-  name: "Login",
+  name: "Register",
   data() {
     return {
       user: new User("", "", "", ""),
@@ -74,11 +98,16 @@ export default {
   },
 
   methods: {
-    handleLogin() {
-      if (this.user.email && this.user.password) {
-        this.$store.dispatch("auth/login", this.user).then(
+    handleRegister() {
+      if (
+        this.user.firstname &&
+        this.user.lastname &&
+        this.user.email &&
+        this.user.password
+      ) {
+        this.$store.dispatch("auth/register", this.user).then(
           () => {
-            this.$router.push("/profile");
+            this.$router.push("/login");
           },
           (error) => {
             this.message = error.response;

@@ -24,7 +24,7 @@
           <div class="uk-margin">
             <select class="uk-select" v-model="selectedTool">
               <option value="diamond-miner">Diamond-Miner</option>
-              <option value="ping">Yarrp</option>
+              <option value="yarrp">Yarrp</option>
               <option value="ping">Ping</option>
             </select>
           </div>
@@ -102,9 +102,6 @@
           </button>
         </fieldset>
       </form>
-      <!-- <hr class="uk-margin-large" />
-      <p>{{ agents }}</p>
-      <p>{{ targets }}</p> -->
     </div>
   </div>
 </template>
