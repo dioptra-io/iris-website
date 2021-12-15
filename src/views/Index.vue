@@ -7,20 +7,12 @@
     <div style="padding-top: 50px"></div>
 
     <article class="uk-article">
-      <img
-        class="uk-align-right uk-margin-remove-adjacent"
-        src="../assets/images/index.png"
-        width="500"
-        height="600"
-        alt="Data illustration"
-      />
-
-      <h1 class="uk-article-title">Iris</h1>
+      <h1 class="uk-article-title uk-text-bold">Iris</h1>
       <p class="uk-article-meta">
         Resilient internet-scale measurement system.
       </p>
 
-      <p class="uk-text-lead" align="justify">
+      <p class="uk-text-lead">
         Iris is an open-sourced measurement system that aims to produce
         internet-scale IP-level topologies and gives the possibility to the user
         to conduct their own measurements with multiple tools. Thanks to its
@@ -36,8 +28,8 @@
         We are using the Iris platform to produce multi vantage points internet
         scale IP-level topology datasets.
       </p>
-      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
-        >Contact us</a
+      <router-link class="uk-button uk-button-secondary" to="/register"
+        >Register</router-link
       >
 
       <hr class="uk-margin-large" />

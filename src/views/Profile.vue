@@ -11,8 +11,8 @@
       <table class="uk-table uk-table-striped">
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th class="uk-table-expand"></th>
+            <th class="uk-table-expand"></th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
       <table class="uk-table uk-table-striped">
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th class="uk-table-expand"></th>
+            <th class="uk-table-expand"></th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@
 import UserService from "../services/user.service";
 
 export default {
-  name: "User",
+  name: "Profile",
   data() {
     return {
       user: "",

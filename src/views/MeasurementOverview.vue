@@ -16,8 +16,8 @@
         <table class="uk-table uk-table-striped">
           <thead>
             <tr>
-              <th></th>
-              <th></th>
+              <th class="uk-table-expand"></th>
+              <th class="uk-table-expand"></th>
             </tr>
           </thead>
           <tbody>
@@ -62,12 +62,13 @@
       </div>
 
       <div style="padding-top: 20px"></div>
+
       <ul
         v-for="agent in measurement.agents"
         :key="agent.parameters.hostname"
         uk-accordion
       >
-        <li>
+        <li class="uk-card uk-card-default uk-card-body">
           <a class="uk-accordion-title" href="#">{{
             agent.parameters.hostname
           }}</a>
@@ -75,8 +76,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th></th>
-                  <th></th>
+                  <th class="uk-table-expand"></th>
+                  <th class="uk-table-expand"></th>
                 </tr>
               </thead>
               <tbody>
@@ -85,7 +86,7 @@
                   <td>{{ agent.uuid }}</td>
                 </tr>
                 <tr>
-                  <td>Target file</td>
+                  <td>target file</td>
                   <td>{{ agent.specific.target_file_content }}</td>
                 </tr>
               </tbody>
@@ -95,8 +96,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th></th>
-                  <th></th>
+                  <th class="uk-table-expand"></th>
+                  <th class="uk-table-expand"></th>
                 </tr>
               </thead>
               <tbody>
@@ -114,8 +115,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th></th>
-                  <th></th>
+                  <th class="uk-table-expand"></th>
+                  <th class="uk-table-expand"></th>
                 </tr>
               </thead>
               <tbody>

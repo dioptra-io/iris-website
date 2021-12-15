@@ -7,68 +7,75 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <div v-if="message" class="uk-alert-warning" uk-alert>
-        <a class="uk-alert-close" uk-close></a>
-        <p>
-          {{ message }}
-        </p>
+      <div class="center uk-margin uk-card uk-card-default uk-card-body">
+        <div v-if="message" class="uk-alert-warning" uk-alert>
+          <a class="uk-alert-close" uk-close></a>
+          <p>
+            {{ message }}
+          </p>
+        </div>
+
+        <form @submit.prevent="handleRegister">
+          <fieldset class="uk-fieldset">
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <input
+                  class="uk-input"
+                  type="text"
+                  id="firstname"
+                  placeholder="First name"
+                  size="30"
+                  v-model="user.firstname"
+                />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <input
+                  class="uk-input"
+                  type="text"
+                  id="lastname"
+                  placeholder="Last name"
+                  size="30"
+                  v-model="user.lastname"
+                />
+              </div>
+            </div>
+
+            <hr class="uk-margin" />
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <input
+                  class="uk-input"
+                  type="text"
+                  id="email"
+                  placeholder="Email"
+                  size="30"
+                  v-model="user.email"
+                />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <input
+                  class="uk-input"
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  size="30"
+                  v-model="user.password"
+                />
+              </div>
+            </div>
+
+            <button class="uk-button uk-button-secondary" type="submit">
+              Register
+            </button>
+          </fieldset>
+        </form>
       </div>
-
-      <form @submit.prevent="handleRegister">
-        <fieldset class="uk-fieldset">
-          <div class="uk-margin">
-            <div class="uk-inline">
-              <input
-                class="uk-input"
-                type="text"
-                id="firstname"
-                placeholder="First name"
-                v-model="user.firstname"
-              />
-            </div>
-          </div>
-
-          <div class="uk-margin">
-            <div class="uk-inline">
-              <input
-                class="uk-input"
-                type="text"
-                id="lastname"
-                placeholder="Last name"
-                v-model="user.lastname"
-              />
-            </div>
-          </div>
-
-          <div class="uk-margin">
-            <div class="uk-inline">
-              <input
-                class="uk-input"
-                type="text"
-                id="email"
-                placeholder="Email"
-                v-model="user.email"
-              />
-            </div>
-          </div>
-
-          <div class="uk-margin">
-            <div class="uk-inline">
-              <input
-                class="uk-input"
-                type="password"
-                id="password"
-                placeholder="Password"
-                v-model="user.password"
-              />
-            </div>
-          </div>
-
-          <button class="uk-button uk-button-default" type="submit">
-            Register
-          </button>
-        </fieldset>
-      </form>
     </div>
   </div>
 </template>

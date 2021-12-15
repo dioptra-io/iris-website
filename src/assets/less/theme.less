@@ -55,7 +55,7 @@
 // UIkit
 // ========================================================================
 
-@global-font-family:                            MontserratLight, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+@global-font-family:                            Roboto, "Helvetica Neue", Arial, sans-serif;
 @global-font-size:                              15px;
 
 @global-2xlarge-font-size:                      38px;
@@ -69,7 +69,7 @@
 @global-muted-color:                            rgb(117, 117, 117);
 
 
-@global-primary-background:                       #ff6337;
+@global-primary-background:                       #2e2e2e;
 
 
 
@@ -270,7 +270,7 @@ html {
  */
 
 .tm-navbar-container:not(.uk-navbar-transparent) {
-    background: linear-gradient(to left, #ff7a56, @global-primary-background);
+    background: linear-gradient(to left, #2e2e2e, @global-primary-background);
 }
 
 .tm-navbar-container .uk-navbar-nav > li > a,
@@ -344,7 +344,7 @@ html {
 .tm-subnav > * > :first-child { text-transform: capitalize; }
 
 /*
- * Label (Changelog()
+ * Label (Changelog)
  */
 
 .tm-label-changelog {
@@ -386,16 +386,12 @@ html {
  */
 
 .tm-section-primary {
-    background: linear-gradient(to left top, #ff7a56, @global-primary-background) 0 0 no-repeat;
+    background: linear-gradient(to left top, #2e2e2e, @global-primary-background) 0 0 no-repeat;
 }
 
-.tm-section-texture {
-    background: url("../images/section-background.svg") 50% 17vh no-repeat,
-                linear-gradient(to left top, #ff7a56, @global-primary-background) 0 0 no-repeat;
-}
 
 .tm-section-intro {
-    background: linear-gradient(to left top, #ff7a56, @global-primary-background) 0 0 no-repeat,
+    background: linear-gradient(to left top, #2e2e2e, @global-primary-background) 0 0 no-repeat,
                 #fff;
     background-size: 100% 75%;
 }
@@ -491,6 +487,17 @@ html {
     .tm-modal-close-full { padding: @global-medium-margin; }
 
 }
+
+/*
+ * Custom
+ */
+
+ .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+ }
 
 /* Utilities
  ========================================================================== */
