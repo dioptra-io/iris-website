@@ -69,6 +69,22 @@
                 />
               </div>
             </div>
+            <div class="uk-margin">
+              <div class="uk-inline">
+                <input
+                  class="uk-input"
+                  type="password"
+                  id="password"
+                  placeholder="Password Confirmation"
+                  size="30"
+                  v-model="confirmation"
+                  v-bind:class="{
+                    'uk-form-success': user.password === confirmation,
+                    'uk-form-danger': user.password !== confirmation,
+                  }"
+                />
+              </div>
+            </div>
 
             <button class="uk-button uk-button-secondary" type="submit">
               Register
@@ -89,6 +105,7 @@ export default {
   data() {
     return {
       user: new User("", "", "", ""),
+      confirmation: "",
       message: "",
     };
   },
@@ -110,7 +127,8 @@ export default {
         this.user.firstname &&
         this.user.lastname &&
         this.user.email &&
-        this.user.password
+        this.user.password &&
+        this.user.password === this.confirmation
       ) {
         this.$store.dispatch("auth/register", this.user).then(
           () => {

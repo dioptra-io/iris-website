@@ -29,7 +29,7 @@
         scale IP-level topology datasets.
       </p>
       <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
-        >Contact us</a
+        ><span uk-icon="icon: mail"></span> Contact us</a
       >
 
       <hr class="uk-margin-large" />
@@ -42,7 +42,7 @@
       </p>
 
       <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
-        >Contact us</a
+        ><span uk-icon="icon: mail"></span> Contact us</a
       >
 
       <hr class="uk-margin-large" />
@@ -55,7 +55,7 @@
       <a
         class="uk-button uk-button-default"
         href="https://github.com/dioptra-io/iris"
-        >Github</a
+        ><span uk-icon="icon: github"></span> Github</a
       >
     </article>
 
