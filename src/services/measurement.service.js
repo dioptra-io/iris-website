@@ -42,6 +42,7 @@ class MeasurementService {
                 throw new Error("Invalid measurement request")
             });
     }
+
     deleteMeasurement(uuid) {
         return axios.delete(
             process.env.VUE_APP_BACKEND_URL + '/measurements/' + uuid,

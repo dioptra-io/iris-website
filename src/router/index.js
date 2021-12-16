@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import Admin from '../views/Admin.vue'
 import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
 import Measurements from '../views/Measurements.vue'
@@ -43,6 +44,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile,
+  },
+  {
+    path: '/admin',
+    name: 'Admin',
+    component: Admin,
   },
   {
     path: '/404',

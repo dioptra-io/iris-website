@@ -65,7 +65,7 @@ export default {
     };
   },
   mounted() {
-    UserService.getUser().then((response) => {
+    UserService.getUserMe().then((response) => {
       this.user = response.data;
     });
   },

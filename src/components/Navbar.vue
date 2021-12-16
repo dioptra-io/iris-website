@@ -25,6 +25,9 @@
             <li v-show="verified">
               <a href="/#/measurements">Measurements</a>
             </li>
+            <li v-show="superuser">
+              <a href="/#/admin">Admin</a>
+            </li>
             <li><a href="/#/profile">Profile</a></li>
             <li><a href @click.prevent="logOut">LogOut</a></li>
           </ul>
@@ -52,6 +55,12 @@ export default {
         return false;
       }
       return this.$store.state.auth.jwt.is_verified;
+    },
+    superuser() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.is_superuser;
     },
   },
   methods: {

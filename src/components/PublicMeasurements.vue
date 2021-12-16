@@ -64,7 +64,7 @@ export default {
       polling: null,
       content: "",
       n_pages: 0,
-      n_measurements_per_page: 10,
+      n_items_per_page: 10,
       current_page: 1,
     };
   },
@@ -78,19 +78,15 @@ export default {
   methods: {
     setPage(page) {
       this.current_page = page;
-      this.fetchMeasurements(
-        (this.current_page - 1) * this.n_measurements_per_page
-      );
+      this.fetchMeasurements((this.current_page - 1) * this.n_items_per_page);
     },
     fetchMeasurements() {
       MeasurementService.getPublicMeasurements(
-        (this.current_page - 1) * this.n_measurements_per_page,
-        this.n_measurements_per_page
+        (this.current_page - 1) * this.n_items_per_page,
+        this.n_items_per_page
       ).then((response) => {
         this.content = response.data;
-        var n_pages = Math.ceil(
-          this.content.count / this.n_measurements_per_page
-        );
+        var n_pages = Math.ceil(this.content.count / this.n_items_per_page);
         if (n_pages > 10) {
           this.n_pages = 10;
         } else {
