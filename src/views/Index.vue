@@ -28,8 +28,8 @@
         We are using the Iris platform to produce multi vantage points internet
         scale IP-level topology datasets.
       </p>
-      <router-link class="uk-button uk-button-secondary" to="/register"
-        >Register</router-link
+      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
+        >Contact us</a
       >
 
       <hr class="uk-margin-large" />
