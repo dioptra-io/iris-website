@@ -28,7 +28,7 @@
         We are using the Iris platform to produce multi vantage points internet
         scale IP-level topology datasets.
       </p>
-      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
+      <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
         ><span uk-icon="icon: mail"></span> Contact us</a
       >
 
@@ -41,7 +41,7 @@
         measurements directly from the website.
       </p>
 
-      <a class="uk-button uk-button-secondary" href="mailto:admins@dioptra.io"
+      <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
         ><span uk-icon="icon: mail"></span> Contact us</a
       >
 
