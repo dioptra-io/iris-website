@@ -26,7 +26,7 @@
               <td>
                 {{ measurement.uuid }}
                 <button
-                  v-if="measurement.state !== 'finished'"
+                  v-if="is_mine && measurement.state !== 'finished'"
                   v-on:click="cancelMeasurement()"
                   class="
                     uk-button uk-button-danger uk-button-small uk-align-right
@@ -57,7 +57,8 @@
           v-for="tag in measurement.tags"
           :key="tag"
         >
-          <span class="uk-label">{{ tag }}</span>
+          <span class="uk-label">{{ tag }} </span>
+          <span>&nbsp;</span>
         </div>
       </div>
 
@@ -143,14 +144,26 @@ export default {
       measurement: "",
       backend_url: process.env.VUE_APP_BACKEND_URL,
       is_canceled: false,
+      is_mine: this.$route.params.is_mine === "true",
     };
   },
   mounted() {
-    this.fetchMeasurement();
+    if (this.is_mine) {
+      this.fetchMeasurement();
+    } else {
+      this.fetchPublicMeasurement();
+    }
   },
   methods: {
     fetchMeasurement() {
       MeasurementService.getMeasurement(this.$route.params.uuid).then(
+        (response) => {
+          this.measurement = response.data;
+        }
+      );
+    },
+    fetchPublicMeasurement() {
+      MeasurementService.getPublicMeasurement(this.$route.params.uuid).then(
         (response) => {
           this.measurement = response.data;
         }

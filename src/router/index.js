@@ -12,17 +12,17 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: Index
+    component: Index,
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
   },
   {
     path: '/register',
     name: 'Register',
-    component: Register
+    component: Register,
   },
   {
     path: '/measurements',
@@ -32,7 +32,7 @@ const routes = [
   {
     path: '/measurements/:uuid',
     name: 'MeasurementOverview',
-    component: MeasurementOverview
+    component: MeasurementOverview,
   },
   {
     path: '/new',
@@ -42,12 +42,12 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
   },
   {
     path: '/404',
     name: '404',
-    component: PageNotFound
+    component: PageNotFound,
   },
 ]
 

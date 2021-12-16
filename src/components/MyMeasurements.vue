@@ -34,7 +34,7 @@
           <router-link
             :to="{
               name: 'MeasurementOverview',
-              params: { uuid: measurement.uuid },
+              params: { uuid: measurement.uuid, is_mine: true },
             }"
             >{{ measurement.uuid }}</router-link
           >
@@ -60,7 +60,7 @@
 
 <style scoped>
 .current {
-  color: #ff6337;
+  color: #2e2e2e;
 }
 </style>
 

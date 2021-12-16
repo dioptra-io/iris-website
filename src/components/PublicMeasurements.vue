@@ -22,16 +22,13 @@
     </thead>
     <tbody>
       <tr v-for="measurement in content.results" :key="measurement.start_time">
-        <!-- <td>
-          <router-link
-            :to="{
-              name: 'MeasurementOverview',
-              params: { uuid: measurement.uuid },
-            }"
-            >{{ measurement.uuid }}</router-link
-          >
-        </td> -->
-        <td>{{ measurement.uuid }}</td>
+        <router-link
+          :to="{
+            name: 'MeasurementOverview',
+            params: { uuid: measurement.uuid, is_mine: false },
+          }"
+          >{{ measurement.uuid }}</router-link
+        >
         <td>{{ measurement.tool }}</td>
         <td>{{ measurement.start_time }}<br />{{ measurement.end_time }}</td>
         <td>
@@ -53,7 +50,7 @@
 
 <style scoped>
 .current {
-  color: #ff6337;
+  color: #2e2e2e;
 }
 </style>
 
