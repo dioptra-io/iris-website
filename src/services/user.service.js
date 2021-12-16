@@ -17,7 +17,7 @@ class UserService {
 
     getNonVerifiedUsers(offset, limit) {
         return axios.get(
-            `${process.env.VUE_APP_BACKEND_URL}/users/?filter_verified=true&offset=${offset}&limit=${limit}`,
+            `${process.env.VUE_APP_BACKEND_URL}/users?filter_verified=true&offset=${offset}&limit=${limit}`,
             { headers: authHeader() }
         ).then(response => {
             return response;
