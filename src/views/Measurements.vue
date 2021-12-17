@@ -8,44 +8,51 @@
       <div style="padding-top: 50px"></div>
 
       <ul uk-tab>
-        <li>
+        <li
+          v-bind:class="{
+            'uk-active': $route.params.visibility === 'public',
+          }"
+        >
           <router-link
-            class="uk-active"
-            :to="{
-              name: 'Measurements',
-              params: { vue: 'public' },
-            }"
+            :to="{ name: 'Measurements', params: { visibility: 'public' } }"
             >Public</router-link
           >
         </li>
-        <li v-show="probingEnabled">
+        <li
+          v-show="probingEnabled"
+          v-bind:class="{
+            'uk-active': $route.params.visibility === 'private',
+          }"
+        >
           <router-link
             :to="{
               name: 'Measurements',
-              params: { vue: 'own' },
+              params: { visibility: 'private' },
             }"
-            >own</router-link
+            >private</router-link
           >
         </li>
       </ul>
 
       <public-measurements
-        v-if="$route.params.vue === undefined || $route.params.vue === 'public'"
+        v-if="$route.params.visibility === 'public'"
       ></public-measurements>
-      <my-measurements v-if="$route.params.vue === 'own'"></my-measurements>
+      <private-measurements
+        v-else-if="$route.params.visibility === 'private'"
+      ></private-measurements>
     </div>
   </div>
 </template>
 
 <script>
-import MyMeasurements from "@/components/MyMeasurements.vue";
+import PrivateMeasurements from "@/components/PrivateMeasurements.vue";
 import PublicMeasurements from "@/components/PublicMeasurements.vue";
 
 export default {
   name: "Mesurements",
   components: {
     PublicMeasurements,
-    MyMeasurements,
+    PrivateMeasurements,
   },
   computed: {
     probingEnabled() {
@@ -54,6 +61,14 @@ export default {
       }
       return this.$store.state.auth.jwt.probing_enabled;
     },
+  },
+  mounted() {
+    if (
+      this.$route.params.visibility !== "public" &&
+      this.$route.params.visibility !== "private"
+    ) {
+      this.$router.push("/404");
+    }
   },
 };
 </script>

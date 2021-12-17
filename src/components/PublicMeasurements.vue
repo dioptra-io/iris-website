@@ -24,8 +24,8 @@
       <tr v-for="measurement in content.results" :key="measurement.start_time">
         <router-link
           :to="{
-            name: 'MeasurementOverview',
-            params: { uuid: measurement.uuid, is_mine: false },
+            name: 'MeasurementDetails',
+            params: { visibility: 'public', uuid: measurement.uuid },
           }"
           >{{ measurement.uuid }}</router-link
         >

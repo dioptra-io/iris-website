@@ -26,7 +26,10 @@
               <td>
                 {{ measurement.uuid }}
                 <button
-                  v-if="is_mine && measurement.state !== 'finished'"
+                  v-if="
+                    $route.params.visibility === 'private' &&
+                    measurement.state !== 'finished'
+                  "
                   v-on:click="cancelMeasurement()"
                   class="
                     uk-button uk-button-danger uk-button-small uk-align-right
@@ -45,7 +48,7 @@
               <td>{{ measurement.state }}</td>
             </tr>
             <tr>
-              <td>time</td>
+              <td>Time</td>
               <td>
                 {{ measurement.start_time }}<br />{{ measurement.end_time }}
               </td>
@@ -138,36 +141,41 @@
 import MeasurementService from "../services/measurement.service";
 
 export default {
-  name: "MeasurementOverview",
+  name: "MeasurementDetails",
   data() {
     return {
       measurement: "",
       backend_url: process.env.VUE_APP_BACKEND_URL,
       is_canceled: false,
-      is_mine: this.$route.params.is_mine === "true",
     };
   },
   mounted() {
-    if (this.is_mine) {
+    if (this.$route.params.visibility === "private") {
       this.fetchMeasurement();
-    } else {
+    } else if (this.$route.params.visibility === "public") {
       this.fetchPublicMeasurement();
+    } else {
+      this.$router.push("/404");
     }
   },
   methods: {
     fetchMeasurement() {
-      MeasurementService.getMeasurement(this.$route.params.uuid).then(
-        (response) => {
+      MeasurementService.getMeasurement(this.$route.params.uuid)
+        .then((response) => {
           this.measurement = response.data;
-        }
-      );
+        })
+        .catch(() => {
+          this.$router.push("/404");
+        });
     },
     fetchPublicMeasurement() {
-      MeasurementService.getPublicMeasurement(this.$route.params.uuid).then(
-        (response) => {
+      MeasurementService.getPublicMeasurement(this.$route.params.uuid)
+        .then((response) => {
           this.measurement = response.data;
-        }
-      );
+        })
+        .catch(() => {
+          this.$router.push("/404");
+        });
     },
     cancelMeasurement() {
       MeasurementService.deleteMeasurement(this.measurement.uuid).then(() => {

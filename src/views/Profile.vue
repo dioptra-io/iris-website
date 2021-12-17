@@ -79,7 +79,6 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$store.state.openapi.mapping);
     UserService.getUserMe().then((response) => {
       this.user = response.data;
     });

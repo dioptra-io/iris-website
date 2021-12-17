@@ -33,8 +33,8 @@
         <td>
           <router-link
             :to="{
-              name: 'MeasurementOverview',
-              params: { uuid: measurement.uuid, is_mine: true },
+              name: 'MeasurementDetails',
+              params: { visibility: 'private', uuid: measurement.uuid },
             }"
             >{{ measurement.uuid }}</router-link
           >
@@ -68,7 +68,7 @@
 import MeasurementService from "../services/measurement.service";
 
 export default {
-  name: "MyMeasurements",
+  name: "PrivateMeasurements",
   data() {
     return {
       polling: null,

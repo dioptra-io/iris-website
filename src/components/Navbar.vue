@@ -23,7 +23,7 @@
 
           <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
             <li v-show="verified">
-              <a href="/#/measurements">Measurements</a>
+              <a href="/#/measurements/public">Measurements</a>
             </li>
             <li v-show="superuser">
               <a href="/#/admin">Admin</a>

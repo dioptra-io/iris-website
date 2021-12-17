@@ -47,6 +47,7 @@
         class="uk-button uk-button-secondary"
         :to="{
           name: 'Measurements',
+          params: { visibility: 'public' },
         }"
         ><span uk-icon="icon: database"></span> Get data</router-link
       >
@@ -71,6 +72,7 @@
         class="uk-button uk-button-secondary"
         :to="{
           name: 'Measurements',
+          params: { visibility: 'private' },
         }"
         ><span uk-icon="icon: bolt"></span> Perform measurements</router-link
       >
