@@ -43,6 +43,22 @@ class UserService {
             });
     }
 
+    enableProbing(id) {
+        return axios
+            .patch(process.env.VUE_APP_BACKEND_URL + `/users/${id}`,
+                { is_verified: true, probing_enabled: true },
+                { headers: authHeader() }
+            ).then(response => {
+                return response;
+            }).catch((error) => {
+                if (error.response.status == 401) {
+                    localStorage.removeItem('user')
+                    document.location.href = '/';
+                }
+                throw new Error("Invalid measurement request")
+            });
+    }
+
     deleteUser(id) {
         return axios
             .delete(process.env.VUE_APP_BACKEND_URL + `/users/${id}`, {

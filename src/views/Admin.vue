@@ -41,6 +41,11 @@
                 uk-icon="check"
               ></button>
               <button
+                v-on:click="enableProbing(user)"
+                type="button"
+                uk-icon="bolt"
+              ></button>
+              <button
                 v-on:click="deleteUser(user)"
                 type="button"
                 uk-icon="close"
@@ -106,6 +111,12 @@ export default {
 
     verifyUser(user) {
       UserService.verifyUser(user.id).then((response) => {
+        this.fetchNonVerifiedUsers();
+      });
+    },
+
+    enableProbing(user) {
+      UserService.enableProbing(user.id).then((response) => {
         this.fetchNonVerifiedUsers();
       });
     },
