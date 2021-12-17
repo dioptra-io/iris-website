@@ -114,7 +114,14 @@ export default {
       ) {
         this.$store.dispatch("auth/register", this.user).then(
           () => {
-            this.$router.push("/login");
+            this.$store.dispatch("auth/login", this.user).then(
+              () => {
+                this.$router.push("/profile");
+              },
+              (error) => {
+                this.message = error.response.data.detail;
+              }
+            );
           },
           (error) => {
             this.message = error.response.data.detail;

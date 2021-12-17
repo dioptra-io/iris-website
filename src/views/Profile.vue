@@ -32,7 +32,14 @@
             <td>verified</td>
             <td v-if="user.is_verified">{{ user.is_verified }}</td>
             <td v-else class="uk-text-danger">
-              waiting (please provide us the license signed)
+              Sign the
+              <a href="https://minio.iris.dioptra.io/public/license_iris.pdf"
+                >license</a
+              >
+              and
+              <a href="mailto:iris@dioptra.io?subject=[iris] License agreement"
+                >send it to us</a
+              >.
             </td>
           </tr>
         </tbody>

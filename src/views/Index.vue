@@ -10,7 +10,7 @@
       <h1 class="uk-article-title uk-text-bold">Iris</h1>
 
       <p class="uk-text-lead">
-        Iris is an open-sourced measurement system that aims to produce
+        Iris is an open-source measurement system that aims to produce
         internet-scale IP-level topologies and gives the possibility to the user
         to conduct their own measurements with multiple tools. Thanks to its
         modular API and a resilient design, Iris is able to handle a large
@@ -40,7 +40,7 @@
         :to="{
           name: 'Profile',
         }"
-        ><span uk-icon="icon: user"></span> Check out</router-link
+        ><span uk-icon="icon: pencil"></span> Sign the license</router-link
       >
       <router-link
         v-else
@@ -48,12 +48,8 @@
         :to="{
           name: 'Measurements',
         }"
-        ><span uk-icon="icon: database"></span> Get data!</router-link
+        ><span uk-icon="icon: database"></span> Get data</router-link
       >
-
-      <!-- <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
-        ><span uk-icon="icon: mail"></span> Contact us</a
-      > -->
 
       <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
@@ -67,7 +63,7 @@
       <a
         v-if="!loggedIn || (loggedIn && !probingEnabled)"
         class="uk-button uk-button-secondary"
-        href="mailto:iris@dioptra.io"
+        href="mailto:iris@dioptra.io?subject=[iris] Probing capabilities"
         ><span uk-icon="icon: mail"></span> Contact us</a
       >
       <router-link
@@ -76,7 +72,7 @@
         :to="{
           name: 'Measurements',
         }"
-        ><span uk-icon="icon: bolt"></span> Perfom measurements!</router-link
+        ><span uk-icon="icon: bolt"></span> Perform measurements</router-link
       >
 
       <hr class="uk-margin" />
