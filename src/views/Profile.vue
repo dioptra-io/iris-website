@@ -17,19 +17,19 @@
         </thead>
         <tbody>
           <tr>
-            <td>firstname</td>
+            <td>{{ $store.state.openapi.mapping.firstname }}</td>
             <td>{{ user.firstname }}</td>
           </tr>
           <tr>
-            <td>lastname</td>
+            <td>{{ $store.state.openapi.mapping.lastname }}</td>
             <td>{{ user.lastname }}</td>
           </tr>
           <tr>
-            <td>email</td>
+            <td>{{ $store.state.openapi.mapping.email }}</td>
             <td>{{ user.email }}</td>
           </tr>
           <tr>
-            <td>verified</td>
+            <td>{{ $store.state.openapi.mapping.is_verified }}</td>
             <td v-if="user.is_verified">{{ user.is_verified }}</td>
             <td v-else class="uk-text-danger">
               Sign the
@@ -55,11 +55,11 @@
         </thead>
         <tbody>
           <tr>
-            <td>enabled</td>
+            <td>{{ $store.state.openapi.mapping.probing_enabled }}</td>
             <td>{{ user.probing_enabled }}</td>
           </tr>
           <tr>
-            <td>limit</td>
+            <td>{{ $store.state.openapi.mapping.probing_limit }}</td>
             <td>{{ user.probing_limit }}</td>
           </tr>
         </tbody>
@@ -79,6 +79,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.$store.state.openapi.mapping);
     UserService.getUserMe().then((response) => {
       this.user = response.data;
     });

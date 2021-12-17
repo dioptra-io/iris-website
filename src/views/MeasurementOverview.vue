@@ -22,7 +22,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>UUID</td>
+              <td>{{ $store.state.openapi.mapping.uuid }}</td>
               <td>
                 {{ measurement.uuid }}
                 <button
@@ -37,11 +37,11 @@
               </td>
             </tr>
             <tr>
-              <td>tool</td>
+              <td>{{ $store.state.openapi.mapping.tool }}</td>
               <td>{{ measurement.tool }}</td>
             </tr>
             <tr>
-              <td>state</td>
+              <td>{{ $store.state.openapi.mapping.state }}</td>
               <td>{{ measurement.state }}</td>
             </tr>
             <tr>
@@ -83,11 +83,11 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>UUID</td>
+                  <td>{{ $store.state.openapi.mapping.uuid }}</td>
                   <td>{{ agent.uuid }}</td>
                 </tr>
                 <tr>
-                  <td>target file</td>
+                  <td>{{ $store.state.openapi.mapping.target_file }}</td>
                   <td>{{ agent.specific.target_file_content }}</td>
                 </tr>
               </tbody>
@@ -106,7 +106,7 @@
                   v-for="(value, key) in agent.specific.tool_parameters"
                   v-bind:key="key"
                 >
-                  <td>{{ key }}</td>
+                  <td>{{ $store.state.openapi.mapping[key] }}</td>
                   <td>{{ value }}</td>
                 </tr>
               </tbody>
@@ -122,7 +122,7 @@
               </thead>
               <tbody>
                 <tr v-for="(value, key) in agent.parameters" v-bind:key="key">
-                  <td>{{ key }}</td>
+                  <td>{{ $store.state.openapi.mapping[key] }}</td>
                   <td>{{ value }}</td>
                 </tr>
               </tbody>

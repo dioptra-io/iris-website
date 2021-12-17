@@ -9,9 +9,6 @@ class UserService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 
@@ -21,9 +18,6 @@ class UserService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 

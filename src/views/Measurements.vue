@@ -22,9 +22,9 @@
           <router-link
             :to="{
               name: 'Measurements',
-              params: { vue: 'mine' },
+              params: { vue: 'own' },
             }"
-            >Mine</router-link
+            >own</router-link
           >
         </li>
       </ul>
@@ -32,7 +32,7 @@
       <public-measurements
         v-if="$route.params.vue === undefined || $route.params.vue === 'public'"
       ></public-measurements>
-      <my-measurements v-if="$route.params.vue === 'mine'"></my-measurements>
+      <my-measurements v-if="$route.params.vue === 'own'"></my-measurements>
     </div>
   </div>
 </template>

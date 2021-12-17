@@ -12,6 +12,9 @@ UIkit.use(Icons);
 
 export default {
   name: "App",
+  created() {
+    this.$store.dispatch("openapi/loadMapping");
+  },
 };
 </script>
 

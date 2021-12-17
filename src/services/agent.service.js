@@ -9,9 +9,6 @@ class AgentService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 

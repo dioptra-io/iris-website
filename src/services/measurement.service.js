@@ -9,9 +9,6 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 
@@ -21,9 +18,6 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 
@@ -64,9 +58,6 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 
@@ -76,9 +67,6 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
-        }).catch(function () {
-            localStorage.removeItem('user')
-            document.location.href = '/';
         });
     }
 
