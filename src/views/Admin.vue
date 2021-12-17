@@ -40,6 +40,11 @@
                 type="button"
                 uk-icon="check"
               ></button>
+              <button
+                v-on:click="deleteUser(user)"
+                type="button"
+                uk-icon="close"
+              ></button>
             </td>
           </tr>
         </tbody>
@@ -83,6 +88,7 @@ export default {
         (this.current_page - 1) * this.n_items_per_page
       );
     },
+
     fetchNonVerifiedUsers() {
       UserService.getNonVerifiedUsers(
         (this.current_page - 1) * this.n_items_per_page,
@@ -97,8 +103,15 @@ export default {
         }
       });
     },
+
     verifyUser(user) {
       UserService.verifyUser(user.id).then((response) => {
+        this.fetchNonVerifiedUsers();
+      });
+    },
+
+    deleteUser(user) {
+      UserService.deleteUser(user.id).then((response) => {
         this.fetchNonVerifiedUsers();
       });
     },

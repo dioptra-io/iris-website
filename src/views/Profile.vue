@@ -28,6 +28,13 @@
             <td>email</td>
             <td>{{ user.email }}</td>
           </tr>
+          <tr>
+            <td>verified</td>
+            <td v-if="user.is_verified">{{ user.is_verified }}</td>
+            <td v-else class="uk-text-danger">
+              waiting (please provide us the license signed)
+            </td>
+          </tr>
         </tbody>
       </table>
 

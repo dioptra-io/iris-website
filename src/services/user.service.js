@@ -42,6 +42,23 @@ class UserService {
                 throw new Error("Invalid measurement request")
             });
     }
+
+    deleteUser(id) {
+        return axios
+            .delete(process.env.VUE_APP_BACKEND_URL + `/users/${id}`, {
+                headers: authHeader(),
+            })
+            .then((response) => {
+                return response;
+            })
+            .catch((error) => {
+                if (error.response.status == 401) {
+                    localStorage.removeItem("user");
+                    document.location.href = "/";
+                }
+                throw new Error("Measurement already finished");
+            });
+    }
 }
 
 export default new UserService();

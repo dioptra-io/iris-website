@@ -8,9 +8,6 @@
 
     <article class="uk-article">
       <h1 class="uk-article-title uk-text-bold">Iris</h1>
-      <p class="uk-article-meta">
-        Resilient internet-scale measurement system.
-      </p>
 
       <p class="uk-text-lead">
         Iris is an open-sourced measurement system that aims to produce
@@ -20,33 +17,70 @@
         number of vantage points with different capabilities.
       </p>
 
-      <hr class="uk-margin-large" />
+      <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Get regular large-scale internet topology datasets.
+        Get regular large-scale internet topology datasets
       </h3>
       <p>
         We are using the Iris platform to produce multi vantage points internet
         scale IP-level topology datasets.
       </p>
-      <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
-        ><span uk-icon="icon: mail"></span> Contact us</a
+
+      <router-link
+        v-if="!loggedIn"
+        class="uk-button uk-button-secondary"
+        :to="{
+          name: 'Register',
+        }"
+        ><span uk-icon="icon: mail"></span> Register</router-link
+      >
+      <router-link
+        v-else-if="loggedIn && !verified"
+        class="uk-button uk-button-secondary"
+        :to="{
+          name: 'Profile',
+        }"
+        ><span uk-icon="icon: user"></span> Check out</router-link
+      >
+      <router-link
+        v-else
+        class="uk-button uk-button-secondary"
+        :to="{
+          name: 'Measurements',
+        }"
+        ><span uk-icon="icon: database"></span> Get data!</router-link
       >
 
-      <hr class="uk-margin-large" />
+      <!-- <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
+        ><span uk-icon="icon: mail"></span> Contact us</a
+      > -->
+
+      <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Run your own measurements on the platform.
+        Run your own measurements on the platform
       </h3>
       <p>
         You can run your own traceroute-like (diamond-miner, yarrp) or ping
         measurements directly from the website.
       </p>
 
-      <a class="uk-button uk-button-secondary" href="mailto:iris@dioptra.io"
+      <a
+        v-if="!loggedIn || (loggedIn && !probingEnabled)"
+        class="uk-button uk-button-secondary"
+        href="mailto:iris@dioptra.io"
         ><span uk-icon="icon: mail"></span> Contact us</a
       >
+      <router-link
+        v-else
+        class="uk-button uk-button-secondary"
+        :to="{
+          name: 'Measurements',
+        }"
+        ><span uk-icon="icon: bolt"></span> Perfom measurements!</router-link
+      >
 
-      <hr class="uk-margin-large" />
-      <h3 class="uk-h3 tm-heading-fragment">Run your own infrastructure.</h3>
+      <hr class="uk-margin" />
+      <h3 class="uk-h3 tm-heading-fragment">Run your own infrastructure</h3>
       <p>
         You can either run the standalone version of Iris that allow to easilly
         perfom measurement via a CLI or run your own multi vantage points
@@ -68,6 +102,23 @@ export default {
   name: "Index",
   props: {
     msg: String,
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+    verified() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.is_verified;
+    },
+    probingEnabled() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.probing_enabled;
+    },
   },
 };
 </script>
