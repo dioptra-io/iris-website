@@ -16,8 +16,8 @@
         <table class="uk-table uk-table-striped">
           <thead>
             <tr>
-              <th class="uk-table-expand"></th>
-              <th class="uk-table-expand"></th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -80,8 +80,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th class="uk-table-expand"></th>
-                  <th class="uk-table-expand"></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -100,8 +100,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th class="uk-table-expand"></th>
-                  <th class="uk-table-expand"></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -119,8 +119,8 @@
             <table class="uk-table uk-table-striped">
               <thead>
                 <tr>
-                  <th class="uk-table-expand"></th>
-                  <th class="uk-table-expand"></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
