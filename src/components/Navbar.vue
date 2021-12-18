@@ -15,13 +15,12 @@
         </div>
 
         <div class="uk-navbar-right">
-          <ul v-show="!loggedIn" class="uk-navbar-nav uk-visible@m">
+          <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
             <li><a href="/#/login">Login</a></li>
-            <!-- <router-link to="/login" tag="li"><a>Login</a></router-link> -->
             <li><a href="/#/register">Register</a></li>
           </ul>
 
-          <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
+          <ul v-else class="uk-navbar-nav uk-visible@m">
             <li v-show="verified">
               <a href="/#/measurements/public">Measurements</a>
             </li>
@@ -29,15 +28,52 @@
               <a href="/#/admin">Admin</a>
             </li>
             <li><a href="/#/profile">Profile</a></li>
-            <li><a href @click.prevent="logOut">LogOut</a></li>
+            <li><a href @click.prevent="signOut">signOut</a></li>
           </ul>
 
+          <!-- For mobile devices -->
           <a
             class="uk-navbar-toggle uk-hidden@m"
             uk-navbar-toggle-icon
             href="#offcanvas"
             uk-toggle
           ></a>
+          <div id="offcanvas" uk-offcanvas="mode: push; overlay: true">
+            <div class="uk-offcanvas-bar">
+              <div v-if="!loggedIn">
+                <a class="uk-text-large uk-text-emphasis" href="/#/login">
+                  Login</a
+                ><br />
+                <a class="uk-text-large uk-text-emphasis" href="/#/register">
+                  Register</a
+                >
+              </div>
+
+              <div v-else>
+                <div v-show="verified">
+                  <a
+                    class="uk-text-large uk-text-emphasis"
+                    href="/#/measurements/public"
+                    >Measurements</a
+                  ><br />
+                </div>
+                <div v-show="superuser">
+                  <a class="uk-text-large uk-text-emphasis" href="/#/admin"
+                    >Admin</a
+                  ><br />
+                </div>
+                <a class="uk-text-large uk-text-emphasis" href="/#/profile"
+                  >Profile</a
+                ><br />
+                <a
+                  class="uk-text-large uk-text-emphasis"
+                  href
+                  @click.prevent="signOut"
+                  >Sign Out</a
+                ><br />
+              </div>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -64,7 +100,7 @@ export default {
     },
   },
   methods: {
-    logOut() {
+    signOut() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },
