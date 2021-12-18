@@ -30,7 +30,7 @@
           </tr>
           <tr>
             <td>{{ $store.state.openapi.mapping.is_verified }}</td>
-            <td v-if="user.is_verified">{{ user.is_verified }}</td>
+            <td v-if="user.is_verified"><span uk-icon="icon: check"></span></td>
             <td v-else class="uk-text-danger">
               Sign the
               <a href="https://minio.iris.dioptra.io/public/license_iris.pdf"
@@ -56,7 +56,12 @@
         <tbody>
           <tr>
             <td>{{ $store.state.openapi.mapping.probing_enabled }}</td>
-            <td>{{ user.probing_enabled }}</td>
+            <td v-if="user.probing_enabled">
+              <span uk-icon="icon: check"></span>
+            </td>
+            <td v-else>
+              <span uk-icon="icon: close"></span>
+            </td>
           </tr>
           <tr>
             <td>{{ $store.state.openapi.mapping.probing_limit }}</td>
