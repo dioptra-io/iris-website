@@ -33,7 +33,7 @@ class UserService {
                     localStorage.removeItem('user')
                     document.location.href = '/';
                 }
-                throw new Error("Invalid measurement request")
+                throw new Error("Invalid user request")
             });
     }
 
@@ -49,7 +49,7 @@ class UserService {
                     localStorage.removeItem('user')
                     document.location.href = '/';
                 }
-                throw new Error("Invalid measurement request")
+                throw new Error("Invalid user request")
             });
     }
 
@@ -66,7 +66,7 @@ class UserService {
                     localStorage.removeItem("user");
                     document.location.href = "/";
                 }
-                throw new Error("Measurement already finished");
+                throw new Error("Invalid user request");
             });
     }
 }
