@@ -1,30 +1,32 @@
 <template>
-  <div uk-inline>
-    <div v-for="result in results" :key="result.name">
-      <a
-        v-if="result.format !== undefined"
-        class="uk-button uk-button-secondary"
-        :href="result.url"
-      >
-        {{ result.format }}
-      </a>
-      <span>&nbsp;</span>
-    </div>
-
-    <!-- <span v-if="!results">&nbsp;</span> -->
-    <router-link
+  <div
+    style="display: inline-table"
+    v-for="result in results"
+    :key="result.name"
+  >
+    <a
+      v-if="result.format !== undefined"
       class="uk-button uk-button-secondary"
-      :to="{
-        name: 'SQL',
-        params: {
-          visibility: visibility,
-          measurementUUID: measurementUUID,
-          agentUUID: agentUUID,
-        },
-      }"
-      >SQL</router-link
+      :href="result.url"
     >
+      {{ result.format }}
+    </a>
+    <span>&nbsp;</span>
   </div>
+
+  <router-link
+    style="display: inline-table"
+    class="uk-button uk-button-secondary"
+    :to="{
+      name: 'SQL',
+      params: {
+        visibility: visibility,
+        measurementUUID: measurementUUID,
+        agentUUID: agentUUID,
+      },
+    }"
+    >SQL</router-link
+  >
 </template>
 
 <script>
