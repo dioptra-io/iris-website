@@ -11,11 +11,6 @@ class S3Service {
             { headers: authHeader() }
         ).then(response => {
             var credentials = response.data;
-            console.log(credentials);
-            console.log(credentials.s3_access_key_id);
-            console.log(credentials.s3_secret_access_key);
-            console.log(credentials.s3_session_token);
-
             var s3_endpoint = new URL(credentials.s3_host).hostname;
             var s3Client = new Minio.Client({
                 endPoint: s3_endpoint,
