@@ -8,6 +8,7 @@ import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
+import SQL from '../views/SQL.vue'
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
     path: '/measurements/:visibility/:uuid',
     name: 'MeasurementDetails',
     component: MeasurementDetails,
+  },
+  {
+    path: '/sql/:visibility/:measurementUUID/:agentUUID',
+    name: 'SQL',
+    component: SQL,
   },
   {
     path: '/new',

@@ -9,6 +9,12 @@ class TargetService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 
@@ -35,7 +41,7 @@ class TargetService {
             ).catch((error) => {
                 if (error.response.status == 401) {
                     localStorage.removeItem('user')
-                    document.location.href = '/';
+                    document.location.href = '/#/login';
                 }
                 throw new Error("Invalid file content")
             });

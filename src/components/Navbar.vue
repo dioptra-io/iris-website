@@ -28,7 +28,7 @@
               <a href="/#/admin">Admin</a>
             </li>
             <li><a href="/#/profile">Profile</a></li>
-            <li><a href @click.prevent="signOut">signOut</a></li>
+            <li><a href @click.prevent="logOut">LogOut</a></li>
           </ul>
 
           <!-- For mobile devices -->
@@ -68,8 +68,8 @@
                 <a
                   class="uk-text-large uk-text-emphasis"
                   href
-                  @click.prevent="signOut"
-                  >Sign Out</a
+                  @click.prevent="LogOut"
+                  >Log Out</a
                 ><br />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default {
     },
   },
   methods: {
-    signOut() {
+    logOut() {
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },

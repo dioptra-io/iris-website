@@ -18,6 +18,12 @@ class UserService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid user request")
         });
     }
 
@@ -31,9 +37,9 @@ class UserService {
             }).catch((error) => {
                 if (error.response.status == 401) {
                     localStorage.removeItem('user')
-                    document.location.href = '/';
+                    document.location.href = '/#/login';
                 }
-                throw new Error("Invalid measurement request")
+                throw new Error("Invalid user request")
             });
     }
 
@@ -47,9 +53,9 @@ class UserService {
             }).catch((error) => {
                 if (error.response.status == 401) {
                     localStorage.removeItem('user')
-                    document.location.href = '/';
+                    document.location.href = '/#/login';
                 }
-                throw new Error("Invalid measurement request")
+                throw new Error("Invalid backend request")
             });
     }
 
@@ -60,13 +66,12 @@ class UserService {
             })
             .then((response) => {
                 return response;
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 if (error.response.status == 401) {
-                    localStorage.removeItem("user");
-                    document.location.href = "/";
+                    localStorage.removeItem('user')
+                    document.location.href = '/#/login';
                 }
-                throw new Error("Measurement already finished");
+                throw new Error("Invalid backend request")
             });
     }
 }

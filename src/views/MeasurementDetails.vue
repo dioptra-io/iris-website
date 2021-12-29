@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="uk-section-primary tm-section-texture">
+    <div class="uk-section-primary tm-section-texture" uk-sticky>
       <navbar class="uk-navbar-transparent" />
     </div>
 
@@ -73,9 +73,17 @@
         uk-accordion
       >
         <li class="uk-card uk-card-default uk-card-body">
-          <a class="uk-accordion-title" href="#">{{
-            agent.parameters.hostname
-          }}</a>
+          <a class="uk-accordion-title" href="#"
+            >{{ agent.parameters.hostname }}
+          </a>
+          <div v-if="$route.params.visibility === 'public'">
+            <div style="padding-top: 20px"></div>
+            <measurement-results
+              :visibility="$route.params.visibility"
+              :measurementUUID="measurement.uuid"
+              :agentUUID="agent.uuid"
+            ></measurement-results>
+          </div>
           <div class="uk-accordion-content">
             <table class="uk-table uk-table-striped">
               <thead>
@@ -139,9 +147,13 @@
 
 <script>
 import MeasurementService from "../services/measurement.service";
+import MeasurementResults from "../components/MeasurementResults.vue";
 
 export default {
   name: "MeasurementDetails",
+  components: {
+    MeasurementResults,
+  },
   data() {
     return {
       measurement: "",

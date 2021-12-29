@@ -9,6 +9,12 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 
@@ -18,6 +24,12 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 
@@ -31,9 +43,9 @@ class MeasurementService {
             }).catch((error) => {
                 if (error.response.status == 401) {
                     localStorage.removeItem('user')
-                    document.location.href = '/';
+                    document.location.href = '/#/login';
                 }
-                throw new Error("Invalid measurement request")
+                throw new Error("Invalid backend request")
             });
     }
 
@@ -46,7 +58,7 @@ class MeasurementService {
         }).catch((error) => {
             if (error.response.status == 401) {
                 localStorage.removeItem('user')
-                document.location.href = '/';
+                document.location.href = '/#/login';
             }
             throw new Error("Measurement already finished")
         });
@@ -58,6 +70,12 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 
@@ -67,6 +85,12 @@ class MeasurementService {
             { headers: authHeader() }
         ).then(response => {
             return response;
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 
