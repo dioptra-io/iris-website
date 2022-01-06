@@ -28,15 +28,15 @@
 
       <router-link
         v-if="!loggedIn"
-        class="uk-button uk-button-secondary"
+        class="uk-button uk-button-primary"
         :to="{
           name: 'Register',
         }"
-        ><span uk-icon="icon: mail"></span> Register</router-link
+        ><span uk-icon="icon: sign-in"></span> Register</router-link
       >
       <router-link
         v-else-if="loggedIn && !verified"
-        class="uk-button uk-button-secondary"
+        class="uk-button uk-button-primary"
         :to="{
           name: 'Profile',
         }"
@@ -44,10 +44,9 @@
       >
       <router-link
         v-else
-        class="uk-button uk-button-secondary"
+        class="uk-button uk-button-primary"
         :to="{
           name: 'Measurements',
-          params: { visibility: 'public' },
         }"
         ><span uk-icon="icon: database"></span> Get data</router-link
       >
@@ -63,16 +62,16 @@
 
       <a
         v-if="!loggedIn || (loggedIn && !probingEnabled)"
-        class="uk-button uk-button-secondary"
+        class="uk-button uk-button-primary"
         href="mailto:iris@dioptra.io?subject=[iris] Probing capabilities"
         ><span uk-icon="icon: mail"></span> Contact us</a
       >
       <router-link
         v-else
-        class="uk-button uk-button-secondary"
+        class="uk-button uk-button-primary"
         :to="{
-          name: 'Measurements',
-          params: { visibility: 'private' },
+          name: 'MeasurementsList',
+          params: { series: 'private' },
         }"
         ><span uk-icon="icon: bolt"></span> Perform measurements</router-link
       >

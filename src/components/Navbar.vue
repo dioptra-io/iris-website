@@ -22,7 +22,7 @@
 
           <ul v-else class="uk-navbar-nav uk-visible@m">
             <li v-show="verified">
-              <a href="/#/measurements/public">Measurements</a>
+              <a href="/#/measurements">Measurements</a>
             </li>
             <li v-show="superuser">
               <a href="/#/admin">Admin</a>

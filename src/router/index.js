@@ -4,6 +4,7 @@ import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
 import Measurements from '../views/Measurements.vue'
 import MeasurementDetails from '../views/MeasurementDetails.vue'
+import MeasurementsList from '../views/MeasurementsList.vue'
 import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
 import Register from '../views/Register.vue'
@@ -27,17 +28,22 @@ const routes = [
     component: Register,
   },
   {
-    path: '/measurements/:visibility',
+    path: '/measurements',
     name: 'Measurements',
     component: Measurements,
   },
   {
-    path: '/measurements/:visibility/:uuid',
+    path: '/measurements/:series',
+    name: 'MeasurementsList',
+    component: MeasurementsList,
+  },
+  {
+    path: '/measurements/:series/:uuid',
     name: 'MeasurementDetails',
     component: MeasurementDetails,
   },
   {
-    path: '/sql/:visibility/:measurementUUID/:agentUUID',
+    path: '/sql/:series/:measurementUUID/:agentUUID',
     name: 'SQL',
     component: SQL,
   },

@@ -27,7 +27,7 @@
                 {{ measurement.uuid }}
                 <button
                   v-if="
-                    $route.params.visibility === 'private' &&
+                    $route.params.series === 'private' &&
                     measurement.state !== 'finished'
                   "
                   v-on:click="cancelMeasurement()"
@@ -76,10 +76,10 @@
           <a class="uk-accordion-title" href="#"
             >{{ agent.parameters.hostname }}
           </a>
-          <div v-if="$route.params.visibility === 'public'">
+          <div v-if="$route.params.series !== 'own'">
             <div style="padding-top: 20px"></div>
             <measurement-results
-              :visibility="$route.params.visibility"
+              :series="$route.params.series"
               :measurementUUID="measurement.uuid"
               :agentUUID="agent.uuid"
             ></measurement-results>
@@ -162,22 +162,19 @@ export default {
     };
   },
   mounted() {
-    if (this.$route.params.visibility === "private") {
-      this.fetchMeasurement();
-    } else if (this.$route.params.visibility === "public") {
-      this.fetchPublicMeasurement();
-    } else {
-      this.$router.push("/404");
-    }
+    this.fetchMeasurement();
   },
   methods: {
     fetchMeasurement() {
-      MeasurementService.getMeasurement(this.$route.params.uuid)
+      MeasurementService.getMeasurement(
+        this.$route.params.uuid,
+        this.$route.params.series
+      )
         .then((response) => {
           this.measurement = response.data;
         })
         .catch(() => {
-          this.$router.push("/404");
+          this.$router.push({ name: "404" });
         });
     },
     fetchPublicMeasurement() {
@@ -186,7 +183,7 @@ export default {
           this.measurement = response.data;
         })
         .catch(() => {
-          this.$router.push("/404");
+          this.$router.push({ name: "404" });
         });
     },
     cancelMeasurement() {

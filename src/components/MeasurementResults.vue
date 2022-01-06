@@ -6,7 +6,7 @@
   >
     <a
       v-if="result.format !== undefined"
-      class="uk-button uk-button-secondary"
+      class="uk-button uk-button-primary"
       :href="result.url"
     >
       {{ result.format }}
@@ -16,11 +16,11 @@
 
   <router-link
     style="display: inline-table"
-    class="uk-button uk-button-secondary"
+    class="uk-button uk-button-primary"
     :to="{
       name: 'SQL',
       params: {
-        visibility: visibility,
+        series: series,
         measurementUUID: measurementUUID,
         agentUUID: agentUUID,
       },
@@ -35,7 +35,7 @@ import S3Service from "../services/s3.service";
 export default {
   name: "MeasurementResults",
   props: {
-    visibility: String,
+    series: String,
     measurementUUID: String,
     agentUUID: String,
   },

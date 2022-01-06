@@ -97,7 +97,7 @@
           </table>
 
           <div style="padding-top: 20px"></div>
-          <button class="uk-button uk-button-secondary" type="submit">
+          <button class="uk-button uk-button-primary" type="submit">
             Create
           </button>
         </fieldset>

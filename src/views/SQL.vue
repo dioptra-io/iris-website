@@ -22,7 +22,7 @@
             </div>
           </div>
 
-          <button class="uk-button uk-button-secondary" type="submit">
+          <button class="uk-button uk-button-primary" type="submit">
             Submit
           </button>
         </fieldset>

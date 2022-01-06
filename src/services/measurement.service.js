@@ -3,9 +3,13 @@ import authHeader from './auth-header';
 
 
 class MeasurementService {
-    getMeasurements(offset, limit) {
+    getMeasurements(offset, limit, visibility) {
+        // TODO: Use tags in next version of Iris for different collections
+        var url = visibility == 'own'
+            ? `${process.env.VUE_APP_BACKEND_URL}/measurements/?offset=${offset}&limit=${limit}`
+            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/?offset=${offset}&limit=${limit}`
         return axios.get(
-            `${process.env.VUE_APP_BACKEND_URL}/measurements/?offset=${offset}&limit=${limit}`,
+            url,
             { headers: authHeader() }
         ).then(response => {
             return response;
@@ -18,9 +22,13 @@ class MeasurementService {
         });
     }
 
-    getMeasurement(uuid) {
+    getMeasurement(uuid, visibility) {
+        // TODO: Use tags in next version of Iris for different collections
+        var url = visibility == 'own'
+            ? `${process.env.VUE_APP_BACKEND_URL}/measurements/${uuid}`
+            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/${uuid}`
         return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/measurements/' + uuid,
+            url,
             { headers: authHeader() }
         ).then(response => {
             return response;
@@ -63,37 +71,6 @@ class MeasurementService {
             throw new Error("Measurement already finished")
         });
     }
-
-    getPublicMeasurements(offset, limit) {
-        return axios.get(
-            `${process.env.VUE_APP_BACKEND_URL}/measurements/public/?offset=${offset}&limit=${limit}`,
-            { headers: authHeader() }
-        ).then(response => {
-            return response;
-        }).catch((error) => {
-            if (error.response.status == 401) {
-                localStorage.removeItem('user')
-                document.location.href = '/#/login';
-            }
-            throw new Error("Invalid backend request")
-        });
-    }
-
-    getPublicMeasurement(uuid) {
-        return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/measurements/public/' + uuid,
-            { headers: authHeader() }
-        ).then(response => {
-            return response;
-        }).catch((error) => {
-            if (error.response.status == 401) {
-                localStorage.removeItem('user')
-                document.location.href = '/#/login';
-            }
-            throw new Error("Invalid backend request")
-        });
-    }
-
 }
 
 export default new MeasurementService();
