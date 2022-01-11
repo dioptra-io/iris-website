@@ -1,14 +1,25 @@
 import axios from 'axios';
+import authHeader from './auth-header';
 
 
 class ChProxyService {
     query(query) {
-        var username = 'public';
-        var password = 'bam5xahGh4uid2ciethoochu6uu2iewo'
         return axios.get(
-            `https://chproxy.iris.dioptra.io?database=iris_dev&user=${username}&password=${password}&query=${query}`,
+            process.env.VUE_APP_BACKEND_URL + '/users/me/services',
+            { headers: authHeader() }
         ).then(response => {
-            return response.data;
+            var credentials = response.data;
+            return axios.get(
+                `https://chproxy.iris.dioptra.io?database=${credentials.chproxy_database}&user=${credentials.chproxy_username}&password=${credentials.chproxy_password}&query=${query}`,
+            ).then(response => {
+                return response.data;
+            });
+        }).catch((error) => {
+            if (error.response.status == 401) {
+                localStorage.removeItem('user')
+                document.location.href = '/#/login';
+            }
+            throw new Error("Invalid backend request")
         });
     }
 }

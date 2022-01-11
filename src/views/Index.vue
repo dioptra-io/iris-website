@@ -71,7 +71,7 @@
         class="uk-button uk-button-primary"
         :to="{
           name: 'MeasurementsList',
-          params: { series: 'private' },
+          params: { series: 'own' },
         }"
         ><span uk-icon="icon: bolt"></span> Perform measurements</router-link
       >

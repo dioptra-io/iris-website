@@ -100,6 +100,17 @@ export default {
     };
   },
   mounted() {
+    // Check if the user has probing enabled to get 'own' measurements list
+    if (this.$route.params.series === "own" && !this.probingEnabled()) {
+      this.$router.push({ name: "404" });
+    }
+
+    // Check if the measurement list is registred as valid measurement collection
+    if (!["own", "exhaustive", "zeph"].includes(this.$route.params.series)) {
+      this.$router.push({ name: "404" });
+    }
+
+    // If checks are successful, fetch the measurement list
     this.fetchMeasurements();
     this.polling = setInterval(this.fetchMeasurements, 10000);
   },
@@ -108,6 +119,12 @@ export default {
     clearInterval(this.polling);
   },
   methods: {
+    probingEnabled() {
+      if (!this.$store.state.auth.jwt) {
+        return false;
+      }
+      return this.$store.state.auth.jwt.probing_enabled;
+    },
     setPage(page) {
       this.current_page = page;
       this.fetchMeasurements((this.current_page - 1) * this.n_items_per_page);

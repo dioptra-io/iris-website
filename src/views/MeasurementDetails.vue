@@ -69,19 +69,19 @@
 
       <ul
         v-for="agent in measurement.agents"
-        :key="agent.parameters.hostname"
+        :key="agent.agent_parameters.hostname"
         uk-accordion
       >
         <li class="uk-card uk-card-default uk-card-body">
           <a class="uk-accordion-title" href="#"
-            >{{ agent.parameters.hostname }}
+            >{{ agent.agent_parameters.hostname }}
           </a>
           <div v-if="$route.params.series !== 'own'">
             <div style="padding-top: 20px"></div>
             <measurement-results
               :series="$route.params.series"
               :measurementUUID="measurement.uuid"
-              :agentUUID="agent.uuid"
+              :agentUUID="agent.agent_uuid"
             ></measurement-results>
           </div>
           <div class="uk-accordion-content">
@@ -95,11 +95,11 @@
               <tbody>
                 <tr>
                   <td>{{ $store.state.openapi.mapping.uuid }}</td>
-                  <td>{{ agent.uuid }}</td>
+                  <td>{{ agent.agent_uuid }}</td>
                 </tr>
                 <tr>
                   <td>{{ $store.state.openapi.mapping.target_file }}</td>
-                  <td>{{ agent.specific.target_file_content }}</td>
+                  <td>{{ agent.target_file }}</td>
                 </tr>
               </tbody>
             </table>
@@ -114,7 +114,7 @@
               </thead>
               <tbody>
                 <tr
-                  v-for="(value, key) in agent.specific.tool_parameters"
+                  v-for="(value, key) in agent.tool_parameters"
                   v-bind:key="key"
                 >
                   <td>{{ $store.state.openapi.mapping[key] }}</td>
@@ -132,7 +132,10 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(value, key) in agent.parameters" v-bind:key="key">
+                <tr
+                  v-for="(value, key) in agent.agent_parameters"
+                  v-bind:key="key"
+                >
                   <td>{{ $store.state.openapi.mapping[key] }}</td>
                   <td>{{ value }}</td>
                 </tr>

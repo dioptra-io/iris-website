@@ -3,11 +3,10 @@ import authHeader from './auth-header';
 
 
 class MeasurementService {
-    getMeasurements(offset, limit, visibility) {
-        // TODO: Use tags in next version of Iris for different collections
-        var url = visibility == 'own'
+    getMeasurements(offset, limit, series) {
+        var url = series == 'own'
             ? `${process.env.VUE_APP_BACKEND_URL}/measurements/?offset=${offset}&limit=${limit}`
-            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/?offset=${offset}&limit=${limit}`
+            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/?tag=collection:${series}&offset=${offset}&limit=${limit}`
         return axios.get(
             url,
             { headers: authHeader() }
@@ -22,13 +21,9 @@ class MeasurementService {
         });
     }
 
-    getMeasurement(uuid, visibility) {
-        // TODO: Use tags in next version of Iris for different collections
-        var url = visibility == 'own'
-            ? `${process.env.VUE_APP_BACKEND_URL}/measurements/${uuid}`
-            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/${uuid}`
+    getMeasurement(uuid, series) {
         return axios.get(
-            url,
+            `${process.env.VUE_APP_BACKEND_URL}/measurements/${uuid}`,
             { headers: authHeader() }
         ).then(response => {
             return response;
