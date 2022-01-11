@@ -6,7 +6,7 @@ class MeasurementService {
     getMeasurements(offset, limit, series) {
         var url = series == 'own'
             ? `${process.env.VUE_APP_BACKEND_URL}/measurements/?offset=${offset}&limit=${limit}`
-            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public/?tag=collection:${series}&offset=${offset}&limit=${limit}`
+            : `${process.env.VUE_APP_BACKEND_URL}/measurements/public?tag=collection:${series}&offset=${offset}&limit=${limit}`
         return axios.get(
             url,
             { headers: authHeader() }
