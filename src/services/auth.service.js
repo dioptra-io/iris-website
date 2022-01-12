@@ -21,6 +21,11 @@ class AuthService {
 
     logout() {
         localStorage.removeItem('user');
+        return axios.post(
+            process.env.VUE_APP_BACKEND_URL + '/auth/cookie/logout',
+            {},
+            { withCredentials: true }
+        )
     }
 
     register(user) {
