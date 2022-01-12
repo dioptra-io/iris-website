@@ -5,13 +5,20 @@
 
   <div class="uk-container">
     <div style="padding-top: 50px"></div>
+
+    <ul class="uk-breadcrumb">
+      <li><router-link :to="{ name: 'Index' }">home</router-link></li>
+      <li>measurements</li>
+    </ul>
+    <div style="padding-top: 10px"></div>
+
     <div class="uk-width-1-1 uk-grid-match" uk-grid>
       <div class="uk-width-1-1" v-if="probingEnabled">
         <router-link
           class="uk-width-1-1 uk-link-reset"
           :to="{
             name: 'MeasurementsList',
-            params: { series: 'own' },
+            params: { series: 'mine' },
           }"
         >
           <div class="uk-card uk-card-secondary uk-card-body">

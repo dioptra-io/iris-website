@@ -7,12 +7,31 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
+      <ul class="uk-breadcrumb">
+        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
+        <li>
+          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{
+              name: 'MeasurementsList',
+              params: { series: $route.params.series },
+            }"
+            >{{ $route.params.series }}</router-link
+          >
+        </li>
+        <li>{{ $route.params.uuid }}</li>
+      </ul>
+      <div style="padding-top: 10px"></div>
+
       <div v-if="is_canceled" class="uk-alert-success" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>Measurement canceled</p>
       </div>
 
       <div class="uk-card uk-card-default uk-card-body">
+        <h4>Metadata</h4>
         <table class="uk-table uk-table-striped">
           <thead>
             <tr>
@@ -27,7 +46,7 @@
                 {{ measurement.uuid }}
                 <button
                   v-if="
-                    $route.params.series === 'private' &&
+                    $route.params.series === 'mine' &&
                     measurement.state !== 'finished'
                   "
                   v-on:click="cancelMeasurement()"
@@ -76,7 +95,7 @@
           <a class="uk-accordion-title" href="#"
             >{{ agent.agent_parameters.hostname }}
           </a>
-          <div v-if="$route.params.series !== 'own'">
+          <div v-if="$route.params.series !== 'mine'">
             <div style="padding-top: 20px"></div>
             <measurement-results
               :series="$route.params.series"

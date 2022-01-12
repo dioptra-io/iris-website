@@ -7,6 +7,24 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
+      <ul class="uk-breadcrumb">
+        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
+        <li>
+          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
+        </li>
+        <li>
+          <router-link
+            :to="{
+              name: 'MeasurementsList',
+              params: { series: 'mine' },
+            }"
+            >mine</router-link
+          >
+        </li>
+        <li>create</li>
+      </ul>
+      <div style="padding-top: 10px"></div>
+
       <div v-if="is_submitted" class="uk-alert-success" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>Measurement created</p>
@@ -19,18 +37,17 @@
 
       <form @submit="handleNew">
         <fieldset class="uk-fieldset">
-          <legend class="uk-legend">New Measurement</legend>
-
           <div class="uk-margin">
+            <h5>Tool</h5>
             <select class="uk-select" v-model="selectedTool">
-              <option value="diamond-miner">Diamond-Miner</option>
-              <option value="yarrp">Yarrp</option>
-              <option value="ping">Ping</option>
+              <option value="diamond-miner">diamond-miner</option>
+              <option value="yarrp">yarrp</option>
+              <option value="ping">ping</option>
             </select>
           </div>
 
           <div class="uk-margin">
-            <div class="uk-form-label">Agents</div>
+            <h5>Agents</h5>
             <div class="uk-form-controls">
               <select class="uk-select" multiple v-model="selectedAgents">
                 <option
@@ -57,28 +74,23 @@
             <tbody>
               <tr v-for="(item, index) in targetContent" :key="index">
                 <td>
-                  <input class="uk-input" v-model="item.prefix" />
-                </td>
-                <td>
                   <input
                     class="uk-input"
-                    placeholder="icmp"
-                    v-model="item.protocol"
+                    placeholder="0.0.0.0/0"
+                    v-model="item.prefix"
                   />
                 </td>
                 <td>
-                  <input
-                    class="uk-input"
-                    placeholder="2"
-                    v-model="item.min_ttl"
-                  />
+                  <select class="uk-select" v-model="item.protocol">
+                    <option value="icmp">icmp</option>
+                    <option value="udp">udp</option>
+                  </select>
                 </td>
                 <td>
-                  <input
-                    class="uk-input"
-                    placeholder="30"
-                    v-model="item.max_ttl"
-                  />
+                  <input class="uk-input" v-model="item.min_ttl" />
+                </td>
+                <td>
+                  <input class="uk-input" v-model="item.max_ttl" />
                 </td>
                 <td>
                   <button
@@ -118,7 +130,9 @@ export default {
       agents: "",
       selectedTool: "diamond-miner",
       selectedAgents: [],
-      targetContent: [{ prefix: "", protocol: "", min_ttl: "", max_ttl: "" }],
+      targetContent: [
+        { prefix: "", protocol: "icmp", min_ttl: "2", max_ttl: "32" },
+      ],
       error: "",
       is_submitted: false,
     };
@@ -132,9 +146,9 @@ export default {
     addRow(index) {
       this.targetContent.splice(index + 1, 0, {
         prefix: "",
-        protocol: "",
-        min_ttl: "",
-        max_ttl: "",
+        protocol: "icmp",
+        min_ttl: "2",
+        max_ttl: "32",
       });
     },
     removeRow(index) {
@@ -161,7 +175,7 @@ export default {
 
       // Check if at least one agent is selected
       if (!this.selectedAgents[0]) {
-        this.error = "No agent(s) selected";
+        this.error = "No agent selected";
         return;
       }
 

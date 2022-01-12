@@ -10,7 +10,7 @@ class ChProxyService {
         ).then(response => {
             var credentials = response.data;
             return axios.get(
-                `https://chproxy.iris.dioptra.io?database=${credentials.chproxy_database}&user=${credentials.chproxy_username}&password=${credentials.chproxy_password}&query=${query}`,
+                `${credentials.chproxy_url}&user=${credentials.chproxy_username}&password=${credentials.chproxy_password}&query=${query}`,
             ).then(response => {
                 return response.data;
             });

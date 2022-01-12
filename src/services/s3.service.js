@@ -7,7 +7,7 @@ var Minio = require('minio')
 class S3Service {
     getFiles(measurementUUID, agentUUID) {
         return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/users/me/s3',
+            process.env.VUE_APP_BACKEND_URL + '/users/me/services',
             { headers: authHeader() }
         ).then(response => {
             var credentials = response.data;

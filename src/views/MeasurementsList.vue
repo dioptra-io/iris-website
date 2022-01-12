@@ -6,17 +6,29 @@
 
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
+
+      <ul class="uk-breadcrumb">
+        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
+        <li>
+          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
+        </li>
+        <li>{{ $route.params.series }}</li>
+      </ul>
+
+      <h1 v-if="$route.params.series !== 'mine'">
+        <span class="uk-text-bolder">collection:</span>
+        {{ $route.params.series }}
+      </h1>
+
       <router-link
-        v-if="$route.params.series === 'own'"
+        v-if="$route.params.series === 'mine'"
         class="uk-button uk-button-primary"
         :to="{
           name: 'NewMeasurement',
         }"
-        >New</router-link
       >
-      <h1 v-if="$route.params.series !== 'own'">
-        {{ $route.params.series }}
-      </h1>
+        create measurement</router-link
+      >
 
       <div style="padding-top: 30px"></div>
       <ul class="uk-dotnav">
@@ -100,13 +112,13 @@ export default {
     };
   },
   mounted() {
-    // Check if the user has probing enabled to get 'own' measurements list
-    if (this.$route.params.series === "own" && !this.probingEnabled()) {
+    // Check if the user has probing enabled to get 'mine' measurements list
+    if (this.$route.params.series === "mine" && !this.probingEnabled()) {
       this.$router.push({ name: "404" });
     }
 
     // Check if the measurement list is registred as valid measurement collection
-    if (!["own", "exhaustive", "zeph"].includes(this.$route.params.series)) {
+    if (!["mine", "exhaustive", "zeph"].includes(this.$route.params.series)) {
       this.$router.push({ name: "404" });
     }
 
