@@ -1,5 +1,4 @@
 import axios from 'axios';
-import authHeader from './auth-header';
 
 var Minio = require('minio')
 
@@ -8,7 +7,6 @@ class S3Service {
     getFiles(measurementUUID, agentUUID) {
         return axios.get(
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
-            { headers: authHeader() }
         ).then(response => {
             var credentials = response.data;
             var s3_endpoint = new URL(credentials.s3_host).hostname;
@@ -37,19 +35,13 @@ class S3Service {
                     reject(e)
                 })
             });
-        }).catch((error) => {
-            if (error.response.status == 401) {
-                localStorage.removeItem('user')
-                document.location.href = '/#/login';
-            }
-            throw new Error("Invalid backend request")
         });
     }
 
     getFileURL(bucket, object) {
         return axios.get(
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
-            { headers: authHeader() }
+            { withCredentials: true }
         ).then(response => {
             var credentials = response.data;
             var s3_endpoint = new URL(credentials.s3_host).hostname;
@@ -63,12 +55,6 @@ class S3Service {
             });
 
             return s3Client.presignedGetObject(bucket, object, 60 * 60, {});
-        }).catch((error) => {
-            if (error.response.status == 401) {
-                localStorage.removeItem('user')
-                document.location.href = '/#/login';
-            }
-            throw new Error("Invalid backend request")
         });
     }
 }

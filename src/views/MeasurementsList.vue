@@ -132,10 +132,10 @@ export default {
   },
   methods: {
     probingEnabled() {
-      if (!this.$store.state.auth.jwt) {
+      if (!this.$store.state.auth.user) {
         return false;
       }
-      return this.$store.state.auth.jwt.probing_enabled;
+      return this.$store.state.auth.user.probing_enabled;
     },
     setPage(page) {
       this.current_page = page;

@@ -105,16 +105,16 @@ export default {
       return this.$store.state.auth.status.loggedIn;
     },
     verified() {
-      if (!this.$store.state.auth.jwt) {
+      if (!this.$store.state.auth.user) {
         return false;
       }
-      return this.$store.state.auth.jwt.is_verified;
+      return this.$store.state.auth.user.is_verified;
     },
     probingEnabled() {
-      if (!this.$store.state.auth.jwt) {
+      if (!this.$store.state.auth.user) {
         return false;
       }
-      return this.$store.state.auth.jwt.probing_enabled;
+      return this.$store.state.auth.user.probing_enabled;
     },
   },
 };
