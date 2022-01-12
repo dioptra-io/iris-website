@@ -3,9 +3,7 @@ import axios from 'axios';
 
 class TargetService {
     getTargets() {
-        return axios.get(
-            process.env.VUE_APP_BACKEND_URL + '/targets/',
-        );
+        return axios.get(process.env.VUE_APP_BACKEND_URL + '/targets/');
     }
 
     postTarget(targetContent) {
@@ -23,10 +21,7 @@ class TargetService {
         return axios.post(process.env.VUE_APP_BACKEND_URL + '/targets/',
             formData,
             {
-                headers: Object.assign(
-                    { 'Content-Type': 'multipart/form-data' },
-                ),
-                withCredentials: true,
+                headers: Object.assign({ 'Content-Type': 'multipart/form-data' })
             },
         );
     }

@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import AuthService from "../services/auth.service";
 export default {
   computed: {
     loggedIn() {
@@ -101,6 +102,7 @@ export default {
   },
   methods: {
     logOut() {
+      AuthService.logout();
       this.$store.dispatch("auth/logout");
       this.$router.push("/");
     },

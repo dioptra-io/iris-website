@@ -41,7 +41,6 @@ class S3Service {
     getFileURL(bucket, object) {
         return axios.get(
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
-            { withCredentials: true }
         ).then(response => {
             var credentials = response.data;
             var s3_endpoint = new URL(credentials.s3_host).hostname;

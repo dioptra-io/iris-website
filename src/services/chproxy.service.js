@@ -5,7 +5,6 @@ class ChProxyService {
     query(query) {
         return axios.get(
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
-            { withCredentials: true }
         ).then(response => {
             var credentials = response.data;
             return axios.get(
