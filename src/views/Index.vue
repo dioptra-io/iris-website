@@ -57,7 +57,9 @@
       </h3>
       <p>
         You can run your own traceroute-like (diamond-miner, yarrp) or ping
-        measurements directly from the website.
+        measurements directly from the website. <br />
+        Check <a href="https://dioptra-io.github.io/iris-uptime">here</a> the
+        status of our Iris instance.
       </p>
 
       <a
@@ -79,9 +81,8 @@
       <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">Run your own infrastructure</h3>
       <p>
-        You can either run the standalone version of Iris that allow to easilly
-        perfom measurement via a CLI or run your own multi vantage points
-        infrastructure on your servers.
+        Because Iris is fully open-source, you can run your own Iris instance
+        easily with Docker.
       </p>
       <a
         class="uk-button uk-button-default"
