@@ -47,7 +47,8 @@
           <tr>
             <th>UUID</th>
             <th>Tool</th>
-            <th>Time</th>
+            <th>Start time</th>
+            <th>End time</th>
             <th>State</th>
           </tr>
         </thead>
@@ -69,9 +70,8 @@
               >
             </td>
             <td>{{ measurement.tool }}</td>
-            <td>
-              {{ measurement.start_time }}<br />{{ measurement.end_time }}
-            </td>
+            <td>{{ formatTime(measurement.start_time) }}</td>
+            <td>{{ formatTime(measurement.end_time) }}</td>
             <td>
               <div v-if="measurement.state === 'finished'">
                 <span uk-icon="icon: check"></span>
@@ -155,6 +155,9 @@ export default {
           this.n_pages = n_pages;
         }
       });
+    },
+    formatTime(time) {
+      return new Date(time).toLocaleString();
     },
   },
 };

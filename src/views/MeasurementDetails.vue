@@ -32,6 +32,7 @@
 
       <div class="uk-card uk-card-default uk-card-body">
         <h4>Metadata</h4>
+
         <table class="uk-table uk-table-striped">
           <thead>
             <tr>
@@ -66,11 +67,28 @@
               <td>{{ $store.state.openapi.mapping.state }}</td>
               <td>{{ measurement.state }}</td>
             </tr>
+          </tbody>
+        </table>
+
+        <table class="uk-table uk-table-striped">
+          <thead>
             <tr>
-              <td>Time</td>
-              <td>
-                {{ measurement.start_time }}<br />{{ measurement.end_time }}
-              </td>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Creation time</td>
+              <td>{{ formatTime(measurement.creation_time) }}</td>
+            </tr>
+            <tr>
+              <td>Start time</td>
+              <td>{{ formatTime(measurement.start_time) }}</td>
+            </tr>
+            <tr>
+              <td>End time</td>
+              <td>{{ formatTime(measurement.end_time) }}</td>
             </tr>
           </tbody>
         </table>
@@ -212,6 +230,9 @@ export default {
       MeasurementService.deleteMeasurement(this.measurement.uuid).then(() => {
         this.is_canceled = true;
       });
+    },
+    formatTime(time) {
+      return new Date(time).toLocaleString();
     },
   },
 };
