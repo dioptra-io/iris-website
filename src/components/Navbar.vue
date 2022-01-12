@@ -53,7 +53,7 @@
                 <div v-show="verified">
                   <a
                     class="uk-text-large uk-text-emphasis"
-                    href="/#/measurements/public"
+                    href="/#/measurements"
                     >Measurements</a
                   ><br />
                 </div>
