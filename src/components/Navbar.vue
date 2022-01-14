@@ -15,6 +15,10 @@
         </div>
 
         <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav uk-visible@m">
+            <li><a href="https://dioptra-io.github.io/iris-uptime/">Platform Status</a></li>
+          </ul>
+
           <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
             <li><a href="/#/login">Login</a></li>
             <li><a href="/#/register">Register</a></li>

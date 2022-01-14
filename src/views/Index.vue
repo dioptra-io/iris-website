@@ -10,11 +10,12 @@
       <h1 class="uk-article-title uk-text-bold">Iris</h1>
 
       <p class="uk-text-lead">
-        Iris is an open-source measurement system that aims to produce
-        internet-scale IP-level topologies and gives the possibility to the user
-        to conduct their own measurements with multiple tools. Thanks to its
-        modular API and a resilient design, Iris is able to handle a large
-        number of vantage points with different capabilities.
+        Iris is an open-source internet measurement platform,
+        designed to coordinate large-scale IP path measurements.
+        It is developed and maintained by the <a href="https://dioptra.io/">Dioptra</a>
+        group at <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>.
+        On this website, we provide regular internet topology datasets and
+        we offer researchers the ability to run their own measurements.
       </p>
 
       <hr class="uk-margin" />
@@ -22,8 +23,11 @@
         Get regular large-scale internet topology datasets
       </h3>
       <p>
-        We are using the Iris platform to produce multi vantage points internet
-        scale IP-level topology datasets.
+        We perform regular measurements of load-balanced IP paths on the Internet with
+        <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a> and
+        <a href="https://github.com/dioptra-io/zeph">Zeph</a>.<br/>
+        We provide our measurement results in multiple formats, including RIPE Atlas JSON, Scamper Warts,
+        and GraphML for easy use with existing tools.
       </p>
 
       <router-link
@@ -56,10 +60,9 @@
         Run your own measurements on the platform
       </h3>
       <p>
-        You can run your own traceroute-like (diamond-miner, yarrp) or ping
-        measurements directly from the website. <br />
-        Check <a href="https://dioptra-io.github.io/iris-uptime">here</a> the
-        status of our Iris instance.
+        We offer researchers the ability to run their own measurements on the platform,
+        through this website or an HTTP API.
+        We support multiple measurement tools including Diamond-Miner and Yarrp.
       </p>
 
       <a
@@ -79,10 +82,10 @@
       >
 
       <hr class="uk-margin" />
-      <h3 class="uk-h3 tm-heading-fragment">Run your own infrastructure</h3>
+      <h3 class="uk-h3 tm-heading-fragment">Contribute to Iris, or run your own instance</h3>
       <p>
-        Because Iris is fully open-source, you can run your own Iris instance
-        easily with Docker.
+        Iris is fully open-source, feel free to make you own changes to its code.<br/>
+        We also provide Docker images for the users who wants to run their own instance of Iris.
       </p>
       <a
         class="uk-button uk-button-default"
