@@ -16,7 +16,11 @@
 
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav uk-visible@m">
-            <li><a href="https://dioptra-io.github.io/iris-uptime/">Platform Status</a></li>
+            <li>
+              <a href="https://dioptra-io.github.io/iris-uptime/"
+                >Platform Status</a
+              >
+            </li>
           </ul>
 
           <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
@@ -75,6 +79,13 @@
                   @click.prevent="LogOut"
                   >Log Out</a
                 ><br />
+              </div>
+              <div>
+                <a
+                  class="uk-text-large uk-text-emphasis"
+                  href="https://dioptra-io.github.io/iris-uptime/"
+                  >Platform Status</a
+                >
               </div>
             </div>
           </div>
