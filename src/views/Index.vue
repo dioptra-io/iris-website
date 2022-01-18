@@ -62,7 +62,9 @@
       <p>
         We offer researchers the ability to run their own measurements on the platform,
         through this website or an HTTP API.
-        We support multiple measurement tools including Diamond-Miner and Yarrp.
+        We support multiple measurement tools, including
+        <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a> and
+        <a href="https://github.com/cmand/yarrp">Yarrp</a>.
       </p>
 
       <a
