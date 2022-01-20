@@ -79,15 +79,15 @@
           </thead>
           <tbody>
             <tr>
-              <td>Creation time</td>
+              <td>Creation time (UTC)</td>
               <td>{{ formatTime(measurement.creation_time) }}</td>
             </tr>
             <tr>
-              <td>Start time</td>
+              <td>Start time (UTC)</td>
               <td>{{ formatTime(measurement.start_time) }}</td>
             </tr>
             <tr>
-              <td>End time</td>
+              <td>End time (UTC)</td>
               <td>{{ formatTime(measurement.end_time) }}</td>
             </tr>
           </tbody>
@@ -232,6 +232,9 @@ export default {
       });
     },
     formatTime(time) {
+      if (time === null) {
+        return "";
+      }
       return new Date(time).toLocaleString();
     },
   },

@@ -47,8 +47,8 @@
           <tr>
             <th>UUID</th>
             <th>Tool</th>
-            <th>Start time</th>
-            <th>End time</th>
+            <th>Start time (UTC)</th>
+            <th>End time (UTC)</th>
             <th>State</th>
           </tr>
         </thead>
@@ -157,6 +157,9 @@ export default {
       });
     },
     formatTime(time) {
+      if (time === null) {
+        return "";
+      }
       return new Date(time).toLocaleString();
     },
   },
