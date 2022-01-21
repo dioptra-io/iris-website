@@ -206,9 +206,17 @@ export default {
             };
 
             // Trigger the measurement
-            MeasurementService.postMeasurement(params).then(() => {
-              this.is_submitted = true;
-            });
+            MeasurementService.postMeasurement(params)
+              .then(() => {
+                this.is_submitted = true;
+              })
+              .catch((error) => {
+                if (error.response.status === 403) {
+                  this.error = "Probing limit reached";
+                } else {
+                  this.error = "Error while creating the measurement";
+                }
+              });
           }.bind(this)
         )
         .catch(
