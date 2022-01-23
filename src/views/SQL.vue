@@ -23,7 +23,11 @@
           </div>
 
           <button class="uk-button uk-button-primary" type="submit">
-            Submit
+            Display
+          </button>
+          <span>&nbsp;</span>
+          <button class="uk-button uk-button-primary" v-on:click="download">
+            Download
           </button>
         </fieldset>
       </form>
@@ -58,6 +62,11 @@ export default {
     handleQuery() {
       ChProxyService.query(this.query).then((response) => {
         this.response = response.data;
+      });
+    },
+    download() {
+      ChProxyService.forgeQuery(this.query).then((url) => {
+        window.open(url);
       });
     },
   },
