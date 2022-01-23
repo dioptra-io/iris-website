@@ -7,7 +7,14 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <form @submit.prevent="handleQuery">
+      <div v-if="error" class="uk-alert-warning" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p>
+          {{ error }}
+        </p>
+      </div>
+
+      <form @submit.prevent="displayQuery">
         <fieldset class="uk-fieldset">
           <div class="uk-margin">
             <div class="uk-inline">
@@ -23,10 +30,13 @@
           </div>
 
           <button class="uk-button uk-button-primary" type="submit">
-            Display
+            sample
           </button>
           <span>&nbsp;</span>
-          <button class="uk-button uk-button-primary" v-on:click="download">
+          <button
+            class="uk-button uk-button-primary"
+            v-on:click="downloadQuery"
+          >
             Download
           </button>
         </fieldset>
@@ -52,20 +62,60 @@ export default {
         "SELECT * FROM results__" +
         this.$route.params.measurementUUID.replace(/-/g, "_") +
         "__" +
-        this.$route.params.agentUUID.replace(/-/g, "_") +
-        " FORMAT CSV",
+        this.$route.params.agentUUID.replace(/-/g, "_"),
       response: "",
+      error: "",
     };
   },
 
   methods: {
-    handleQuery() {
-      ChProxyService.query(this.query).then((response) => {
-        this.response = response.data;
-      });
+    checkQuery(query) {
+      if (query.length === 0) {
+        this.error = "Query is empty";
+        return false;
+      }
+
+      if (query.toLowerCase().includes("format")) {
+        this.error = "Query cannot contain FORMAT";
+        return false;
+      }
+
+      if (query.toLowerCase().includes("limit")) {
+        this.error = "Query cannot contain LIMIT";
+        return false;
+      }
+
+      return true;
     },
-    download() {
-      ChProxyService.forgeQuery(this.query).then((url) => {
+    limitQuery(query) {
+      return query + " LIMIT 100";
+    },
+    formatQuery(query) {
+      return query + " FORMAT CSV";
+    },
+    displayQuery() {
+      if (!this.checkQuery(this.query)) {
+        return;
+      }
+
+      const query = this.formatQuery(this.limitQuery(this.query));
+
+      ChProxyService.query(query)
+        .then((response) => {
+          this.response = response.data;
+        })
+        .catch((_) => {
+          this.error = "No results found";
+        });
+    },
+    downloadQuery() {
+      if (!this.checkQuery(this.query)) {
+        return;
+      }
+
+      const query = this.formatQuery(this.query);
+
+      ChProxyService.forgeQuery(query).then((url) => {
         window.open(url);
       });
     },
