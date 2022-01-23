@@ -91,7 +91,7 @@ export default {
       return query + " LIMIT 100";
     },
     formatQuery(query) {
-      return query + " FORMAT CSV";
+      return query + " FORMAT CSVWithNames";
     },
     displayQuery() {
       if (!this.checkQuery(this.query)) {
