@@ -57,7 +57,7 @@ export default {
   methods: {
     handleQuery() {
       ChProxyService.query(this.query).then((response) => {
-        this.response = response;
+        this.response = response.data;
       });
     },
   },
