@@ -3,39 +3,29 @@
     <div class="uk-container uk-container-expand">
       <nav class="uk-navbar">
         <div class="uk-navbar-left">
-          <router-link class="uk-navbar-item uk-logo" to="/">
-            <img
-              src="../assets/images/dioptra-logo.svg"
-              width="30"
-              height="30"
-              alt="Dioptra logo"
-            />
-            Dioptra Data
-          </router-link>
-        </div>
-
-        <div class="uk-navbar-right">
           <ul class="uk-navbar-nav uk-visible@m">
-            <li>
-              <a href="https://dioptra-io.github.io/iris-uptime/"
-                >Platform Status</a
-              >
-            </li>
+            <li><a href="/#/">Home</a></li>
           </ul>
 
-          <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
-            <li><a href="/#/login">Login</a></li>
-            <li><a href="/#/register">Register</a></li>
-          </ul>
-
-          <ul v-else class="uk-navbar-nav uk-visible@m">
+          <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
             <li v-show="verified">
-              <a href="/#/measurements">Measurements</a>
+              <a href="/#/data">Data</a>
             </li>
             <li v-show="superuser">
               <a href="/#/admin">Admin</a>
             </li>
             <li><a href="/#/profile">Profile</a></li>
+          </ul>
+        </div>
+
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav uk-visible@m"></ul>
+
+          <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
+            <li><a href="/#/login">Login</a></li>
+            <li><a href="/#/register">Register</a></li>
+          </ul>
+          <ul v-else class="uk-navbar-nav uk-visible@m">
             <li><a href @click.prevent="logOut">LogOut</a></li>
           </ul>
 
@@ -59,10 +49,8 @@
 
               <div v-else>
                 <div v-show="verified">
-                  <a
-                    class="uk-text-large uk-text-emphasis"
-                    href="/#/measurements"
-                    >Measurements</a
+                  <a class="uk-text-large uk-text-emphasis" href="/#/data"
+                    >Data</a
                   ><br />
                 </div>
                 <div v-show="superuser">

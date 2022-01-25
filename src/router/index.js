@@ -28,17 +28,17 @@ const routes = [
     component: Register,
   },
   {
-    path: '/measurements',
+    path: '/data',
     name: 'Measurements',
     component: Measurements,
   },
   {
-    path: '/measurements/:series',
+    path: '/data/:series',
     name: 'MeasurementsList',
     component: MeasurementsList,
   },
   {
-    path: '/measurements/:series/:uuid',
+    path: '/data/:series/:uuid',
     name: 'MeasurementDetails',
     component: MeasurementDetails,
   },
