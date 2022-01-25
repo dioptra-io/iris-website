@@ -67,7 +67,6 @@ export default {
   name: "Admin",
   data() {
     return {
-      polling: null,
       content: "",
       n_pages: 0,
       n_items_per_page: 10,
@@ -76,10 +75,6 @@ export default {
   },
   mounted() {
     this.fetchNonVerifiedUsers();
-    this.polling = setInterval(this.fetchNonVerifiedUsers, 10000);
-  },
-  beforeUnmount() {
-    clearInterval(this.polling);
   },
   methods: {
     setPage(page) {

@@ -12,15 +12,7 @@
         <li>
           <router-link :to="{ name: 'Measurements' }">measurements</router-link>
         </li>
-        <li>
-          <router-link
-            :to="{
-              name: 'MeasurementsList',
-              params: { series: $route.params.series },
-            }"
-            >{{ $route.params.series }}</router-link
-          >
-        </li>
+        <li>{{ $route.params.series }}</li>
         <li>
           <router-link
             :to="{

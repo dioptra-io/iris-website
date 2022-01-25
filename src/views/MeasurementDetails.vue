@@ -101,7 +101,7 @@
               :series="$route.params.series"
               :measurementUUID="measurement.uuid"
               :agentUUID="agent.agent_uuid"
-            ></measurement-results>
+            />
           </div>
           <div class="uk-accordion-content">
             <table class="uk-table uk-table-striped">

@@ -11,8 +11,7 @@
             <li v-show="verified">
               <router-link
                 :to="{
-                  name: 'MeasurementsList',
-                  params: { series: 'exhaustive' },
+                  name: 'MeasurementsExhaustive',
                 }"
                 >Exhaustive</router-link
               >
@@ -20,8 +19,7 @@
             <li v-show="verified">
               <router-link
                 :to="{
-                  name: 'MeasurementsList',
-                  params: { series: 'zeph' },
+                  name: 'MeasurementsZeph',
                 }"
                 >Zeph</router-link
               >
@@ -30,8 +28,7 @@
             <li v-show="verified && probingEnabled">
               <router-link
                 :to="{
-                  name: 'MeasurementsList',
-                  params: { series: 'mine' },
+                  name: 'MeasurementsMine',
                 }"
                 >Run measurements</router-link
               >
@@ -76,20 +73,26 @@
 
               <div v-else>
                 <div v-show="verified">
-                  <a
-                    class="uk-text-large uk-text-emphasis"
-                    href="/#/measurements"
+                  <router-link
+                    :to="{
+                      name: 'MeasurementsExhaustive',
+                    }"
+                    >Exhaustive</router-link
                   >
-                    >Get Measurements</a
-                  ><br />
+                  <li v-show="verified">
+                    <router-link
+                      :to="{
+                        name: 'MeasurementsZeph',
+                      }"
+                      >Zeph</router-link
+                    >
+                  </li>
                 </div>
 
                 <div v-show="verified && probingEnabled">
                   <router-link
-                    class="uk-text-large uk-text-emphasis"
                     :to="{
-                      name: 'MeasurementsList',
-                      params: { series: 'mine' },
+                      name: 'MeasurementsMine',
                     }"
                     >Run measurements</router-link
                   >

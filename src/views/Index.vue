@@ -51,8 +51,7 @@
         v-if="loggedIn && verified"
         class="uk-button uk-button-primary"
         :to="{
-          name: 'MeasurementsList',
-          params: { series: 'exhaustive' },
+          name: 'MeasurementsExhaustive',
         }"
         ><span uk-icon="icon: database"></span> Exhaustive</router-link
       >
@@ -61,8 +60,7 @@
         v-if="loggedIn && verified"
         class="uk-button uk-button-primary"
         :to="{
-          name: 'MeasurementsList',
-          params: { series: 'zeph' },
+          name: 'MeasurementsZeph',
         }"
         ><span uk-icon="icon: database"></span> Zeph</router-link
       >
@@ -91,8 +89,7 @@
         v-else
         class="uk-button uk-button-primary"
         :to="{
-          name: 'MeasurementsList',
-          params: { series: 'mine' },
+          name: 'MeasurementsMine',
         }"
         ><span uk-icon="icon: bolt"></span> Run measurements</router-link
       >

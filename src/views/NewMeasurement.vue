@@ -15,8 +15,7 @@
         <li>
           <router-link
             :to="{
-              name: 'MeasurementsList',
-              params: { series: 'mine' },
+              name: 'MeasurementsMine',
             }"
             >mine</router-link
           >

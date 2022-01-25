@@ -3,7 +3,9 @@ import Admin from '../views/Admin.vue'
 import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
 import MeasurementDetails from '../views/MeasurementDetails.vue'
-import MeasurementsList from '../views/MeasurementsList.vue'
+import MeasurementsExhaustive from '../views/MeasurementsExhaustive.vue'
+import MeasurementsZeph from '../views/MeasurementsZeph.vue'
+import MeasurementsMine from '../views/MeasurementsMine.vue'
 import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
 import Register from '../views/Register.vue'
@@ -27,9 +29,19 @@ const routes = [
     component: Register,
   },
   {
-    path: '/measurements/:series',
-    name: 'MeasurementsList',
-    component: MeasurementsList,
+    path: '/measurements/exhaustive',
+    name: 'MeasurementsExhaustive',
+    component: MeasurementsExhaustive,
+  },
+  {
+    path: '/measurements/zeph',
+    name: 'MeasurementsZeph',
+    component: MeasurementsZeph,
+  },
+  {
+    path: '/measurements/mine',
+    name: 'MeasurementsMine',
+    component: MeasurementsMine,
   },
   {
     path: '/measurements/:series/:uuid',
