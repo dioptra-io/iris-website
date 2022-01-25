@@ -7,28 +7,29 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <ul class="uk-breadcrumb">
-        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
-        <li>
-          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
-        </li>
-        <li>{{ $route.params.series }}</li>
-      </ul>
+      <div v-if="$route.params.series === 'mine'">
+        <h1>My measurements</h1>
+        <p>Perform my own measurements with Diamond-Miner, YARRP or Ping.</p>
+        <router-link
+          class="uk-button uk-button-primary"
+          :to="{
+            name: 'NewMeasurement',
+          }"
+        >
+          run measurement</router-link
+        >
+      </div>
 
-      <h1 v-if="$route.params.series !== 'mine'">
-        <span class="uk-text-bolder">collection:</span>
-        {{ $route.params.series }}
-      </h1>
-
-      <router-link
-        v-if="$route.params.series === 'mine'"
-        class="uk-button uk-button-primary"
-        :to="{
-          name: 'NewMeasurement',
-        }"
-      >
-        create measurement</router-link
-      >
+      <div v-else>
+        <h1>{{ firstUpperCase($route.params.series) }}</h1>
+        <p v-if="$route.params.series === 'exhaustive'">
+          Collections of exhaustive measurements of all IPv4 routed prefixes
+          from our lab vantage point (Paris, France) with Diamond-Miner ICMP.
+        </p>
+        <p v-if="$route.params.series === 'zeph'">
+          Collections of Zeph measurements from EdgeNet with Diamond-Miner ICMP.
+        </p>
+      </div>
 
       <div style="padding-top: 30px"></div>
       <ul class="uk-dotnav">
@@ -155,6 +156,9 @@ export default {
           this.n_pages = n_pages;
         }
       });
+    },
+    firstUpperCase(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
     },
     formatTime(time) {
       if (time === null) {

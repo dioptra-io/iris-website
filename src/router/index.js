@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Admin from '../views/Admin.vue'
 import Index from '../views/Index.vue'
 import Login from '../views/Login.vue'
-import Measurements from '../views/Measurements.vue'
 import MeasurementDetails from '../views/MeasurementDetails.vue'
 import MeasurementsList from '../views/MeasurementsList.vue'
 import NewMeasurement from '../views/NewMeasurement.vue'
@@ -28,17 +27,12 @@ const routes = [
     component: Register,
   },
   {
-    path: '/data',
-    name: 'Measurements',
-    component: Measurements,
-  },
-  {
-    path: '/data/:series',
+    path: '/measurements/:series',
     name: 'MeasurementsList',
     component: MeasurementsList,
   },
   {
-    path: '/data/:series/:uuid',
+    path: '/measurements/:series/:uuid',
     name: 'MeasurementDetails',
     component: MeasurementDetails,
   },

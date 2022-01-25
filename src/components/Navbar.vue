@@ -9,11 +9,38 @@
 
           <ul v-show="loggedIn" class="uk-navbar-nav uk-visible@m">
             <li v-show="verified">
-              <a href="/#/data">Data</a>
+              <router-link
+                :to="{
+                  name: 'MeasurementsList',
+                  params: { series: 'exhaustive' },
+                }"
+                >Exhaustive</router-link
+              >
             </li>
+            <li v-show="verified">
+              <router-link
+                :to="{
+                  name: 'MeasurementsList',
+                  params: { series: 'zeph' },
+                }"
+                >Zeph</router-link
+              >
+            </li>
+
+            <li v-show="verified && probingEnabled">
+              <router-link
+                :to="{
+                  name: 'MeasurementsList',
+                  params: { series: 'mine' },
+                }"
+                >Run measurements</router-link
+              >
+            </li>
+
             <li v-show="superuser">
               <a href="/#/admin">Admin</a>
             </li>
+
             <li><a href="/#/profile">Profile</a></li>
           </ul>
         </div>
@@ -49,31 +76,41 @@
 
               <div v-else>
                 <div v-show="verified">
-                  <a class="uk-text-large uk-text-emphasis" href="/#/data"
-                    >Data</a
+                  <a
+                    class="uk-text-large uk-text-emphasis"
+                    href="/#/measurements"
+                  >
+                    >Get Measurements</a
                   ><br />
                 </div>
+
+                <div v-show="verified && probingEnabled">
+                  <router-link
+                    class="uk-text-large uk-text-emphasis"
+                    :to="{
+                      name: 'MeasurementsList',
+                      params: { series: 'mine' },
+                    }"
+                    >Run measurements</router-link
+                  >
+                </div>
+
                 <div v-show="superuser">
                   <a class="uk-text-large uk-text-emphasis" href="/#/admin"
                     >Admin</a
                   ><br />
                 </div>
+
                 <a class="uk-text-large uk-text-emphasis" href="/#/profile"
                   >Profile</a
                 ><br />
+
                 <a
                   class="uk-text-large uk-text-emphasis"
                   href
                   @click.prevent="LogOut"
                   >Log Out</a
                 ><br />
-              </div>
-              <div>
-                <a
-                  class="uk-text-large uk-text-emphasis"
-                  href="https://dioptra-io.github.io/iris-uptime/"
-                  >Platform Status</a
-                >
               </div>
             </div>
           </div>
@@ -101,6 +138,12 @@ export default {
         return false;
       }
       return this.$store.state.auth.user.is_superuser;
+    },
+    probingEnabled() {
+      if (!this.$store.state.auth.user) {
+        return false;
+      }
+      return this.$store.state.auth.user.probing_enabled;
     },
   },
   methods: {

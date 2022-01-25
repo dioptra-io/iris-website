@@ -48,12 +48,23 @@
         ><span uk-icon="icon: pencil"></span> Sign the license</router-link
       >
       <router-link
-        v-else
+        v-if="loggedIn && verified"
         class="uk-button uk-button-primary"
         :to="{
-          name: 'Measurements',
+          name: 'MeasurementsList',
+          params: { series: 'exhaustive' },
         }"
-        ><span uk-icon="icon: database"></span> Get data</router-link
+        >Exhaustive</router-link
+      >
+      <span>&nbsp;</span>
+      <router-link
+        v-if="loggedIn && verified"
+        class="uk-button uk-button-primary"
+        :to="{
+          name: 'MeasurementsList',
+          params: { series: 'zeph' },
+        }"
+        >Zeph</router-link
       >
 
       <hr class="uk-margin" />
@@ -83,7 +94,7 @@
           name: 'MeasurementsList',
           params: { series: 'mine' },
         }"
-        ><span uk-icon="icon: bolt"></span> Perform measurements</router-link
+        ><span uk-icon="icon: bolt"></span> Run measurements</router-link
       >
 
       <hr class="uk-margin" />
