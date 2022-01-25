@@ -54,7 +54,7 @@
           name: 'MeasurementsList',
           params: { series: 'exhaustive' },
         }"
-        >Exhaustive</router-link
+        ><span uk-icon="icon: database"></span> Exhaustive</router-link
       >
       <span>&nbsp;</span>
       <router-link
@@ -64,7 +64,7 @@
           name: 'MeasurementsList',
           params: { series: 'zeph' },
         }"
-        >Zeph</router-link
+        ><span uk-icon="icon: database"></span> Zeph</router-link
       >
 
       <hr class="uk-margin" />

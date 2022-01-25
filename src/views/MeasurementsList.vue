@@ -21,7 +21,7 @@
       </div>
 
       <div v-else>
-        <h1>{{ firstUpperCase($route.params.series) }}</h1>
+        <h1>{{ firstUpperCase($route.params.series) }} measurements</h1>
         <p v-if="$route.params.series === 'exhaustive'">
           Collections of exhaustive measurements of all IPv4 routed prefixes
           from our lab vantage point (Paris, France) with Diamond-Miner ICMP.
@@ -32,7 +32,7 @@
       </div>
 
       <div style="padding-top: 30px"></div>
-      <ul class="uk-dotnav">
+      <ul v-if="n_pages > 1" class="uk-dotnav">
         <li
           v-for="page in n_pages"
           :key="page"
@@ -94,7 +94,7 @@
 
 <style scoped>
 .current {
-  color: #2e2e2e;
+  font-weight: bold;
 }
 </style>
 

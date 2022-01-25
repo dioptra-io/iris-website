@@ -7,7 +7,7 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <ul class="uk-dotnav">
+      <ul v-if="n_pages > 1" class="uk-dotnav">
         <li
           v-for="page in n_pages"
           :key="page"
@@ -56,7 +56,7 @@
 
 <style scoped>
 .current {
-  color: #2e2e2e;
+  font-weight: bold;
 }
 </style>
 
