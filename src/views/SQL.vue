@@ -7,28 +7,6 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <ul class="uk-breadcrumb">
-        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
-        <li>
-          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
-        </li>
-        <li>{{ $route.params.series }}</li>
-        <li>
-          <router-link
-            :to="{
-              name: 'MeasurementDetails',
-              params: {
-                series: $route.params.series,
-                uuid: $route.params.measurementUUID,
-              },
-            }"
-            >{{ $route.params.measurementUUID }}</router-link
-          >
-        </li>
-        <li>{{ $route.params.agentUUID }}</li>
-      </ul>
-      <div style="padding-top: 10px"></div>
-
       <div v-if="error" class="uk-alert-warning" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>
