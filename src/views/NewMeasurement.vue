@@ -7,23 +7,6 @@
     <div class="uk-container">
       <div style="padding-top: 50px"></div>
 
-      <ul class="uk-breadcrumb">
-        <li><router-link :to="{ name: 'Index' }">home</router-link></li>
-        <li>
-          <router-link :to="{ name: 'Measurements' }">measurements</router-link>
-        </li>
-        <li>
-          <router-link
-            :to="{
-              name: 'MeasurementsMine',
-            }"
-            >mine</router-link
-          >
-        </li>
-        <li>create</li>
-      </ul>
-      <div style="padding-top: 10px"></div>
-
       <div v-if="is_submitted" class="uk-alert-success" uk-alert>
         <a class="uk-alert-close" uk-close></a>
         <p>Measurement created</p>
