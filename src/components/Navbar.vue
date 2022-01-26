@@ -46,8 +46,8 @@
           <ul class="uk-navbar-nav uk-visible@m"></ul>
 
           <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
-            <li><a href="/#/login">Login</a></li>
             <li><a href="/#/register">Register</a></li>
+            <li><a href="/#/login">Login</a></li>
           </ul>
           <ul v-else class="uk-navbar-nav uk-visible@m">
             <li><a href @click.prevent="logOut">LogOut</a></li>
@@ -74,23 +74,26 @@
               <div v-else>
                 <div v-show="verified">
                   <router-link
+                    class="uk-text-large uk-text-emphasis"
                     :to="{
                       name: 'MeasurementsExhaustive',
                     }"
                     >Exhaustive</router-link
                   >
-                  <li v-show="verified">
+                  <div v-show="verified">
                     <router-link
+                      class="uk-text-large uk-text-emphasis"
                       :to="{
                         name: 'MeasurementsZeph',
                       }"
                       >Zeph</router-link
                     >
-                  </li>
+                  </div>
                 </div>
 
                 <div v-show="verified && probingEnabled">
                   <router-link
+                    class="uk-text-large uk-text-emphasis"
                     :to="{
                       name: 'MeasurementsMine',
                     }"

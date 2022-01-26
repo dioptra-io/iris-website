@@ -10,25 +10,40 @@
       <h1 class="uk-article-title uk-text-bold">Iris</h1>
 
       <p class="uk-text-lead">
-        Iris is an open-source internet measurement platform, designed to
-        coordinate large-scale IP path measurements. It is developed and
-        maintained by the <a href="https://dioptra.io/">Dioptra</a> group at
-        <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>. On
-        this website, we provide regular internet topology datasets and we offer
-        researchers the ability to run their own measurements.
+        On this website, we provide internet scale route traces datasets and we offer
+        researchers the ability to run their own measurements using our open-source platform Iris.
       </p>
 
       <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Get regular large-scale internet topology datasets
+        Get regular internet scale route trace datasets
       </h3>
       <p>
-        We perform regular measurements of load-balanced IP paths on the
-        Internet with
-        <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
-        and <a href="https://github.com/dioptra-io/zeph">Zeph</a>.<br />
-        We provide our measurement results in multiple formats, including RIPE
-        Atlas JSON, Scamper Warts, and GraphML for easy use with existing tools.
+        Iris performs regular route traces of the load-balanced paths from a
+        small number of vantage points to all routed IPv4 address prefixes. You
+        can download these traces in a variety of formats, including
+        <a href="https://atlas.ripe.net">RIPE Atlas JSON</a>,
+        <a href="https://www.caida.org/catalog/software/scamper/"
+          >Scamper Warts</a
+        >, and
+        <a
+          href="https://gephi.org/users/supported-graph-formats/graphml-format/"
+        >
+          GraphML</a
+        >
+        for easy use with existing tools.
+        We currently provide two datasets:
+        <ul>
+          <li>
+            <b>Exhaustive</b>: we perform multipath traces towards every routed IPv4 address prefixes from our vantage point located in Paris at 100,000pps with ICMP probes.
+            These measurements are made every weeks and discovers around 2 million IPv4 prefixes and 5 million links.
+          </li>
+          <li>
+            <b>Zeph</b>: we perform multipath traces using our open-source orchestrator for distributed IP tracing <a href="https://github.com/dioptra-io/zeph">Zeph</a>
+            based on a reiforcment learning approach to optimize the discovery of interfaces and links.
+            We are able to rapidly ramp up the number of discovery up to 3 million nodes and 16 million links using 5 <a href="https://cloud.google.com" >GCP</a> instances probing at 100,000pps 2 millions prefixes with ICMP probes.
+          </li>
+        </ul>
       </p>
 
       <router-link
@@ -67,14 +82,14 @@
 
       <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Run your own measurements on the platform
+        Run your own measurements from agents across the internet
       </h3>
       <p>
-        We offer researchers the ability to run their own measurements on the
-        platform, through this website or an HTTP API. We support multiple
-        measurement tools, including
-        <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
-        and <a href="https://github.com/cmand/yarrp">Yarrp</a>. <br />
+        Iris offers a RESTful API for running your own IPv4 and IPv6 ping and
+        route traces from the vantage points provided by the
+        <a href="https://www.edge-net.org"> EdgeNet</a> testbed. If you prefer,
+        you can use this website's graphical interface to run your measurements.
+        <br />
         You can check the live status of the platform
         <a href="https://dioptra-io.github.io/iris-uptime/">here</a>.
       </p>
@@ -111,6 +126,17 @@
       >
     </article>
 
+    <hr class="uk-margin" />
+    <h3 class="uk-h3 tm-heading-fragment">About Iris</h3>
+    <p>
+      Iris is an open-source internet measurement platform developed and
+      maintained by the
+      <a href="https://dioptra.io/">Dioptra</a> group at
+      <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>. We
+      support multiple measurement tools, including
+      <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
+      and <a href="https://github.com/cmand/yarrp">Yarrp</a>.
+    </p>
     <div style="padding-top: 50px"></div>
   </div>
 </template>
