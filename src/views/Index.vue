@@ -132,10 +132,10 @@
       Iris is an open-source internet measurement platform developed and
       maintained by the
       <a href="https://dioptra.io/">Dioptra</a> group at
-      <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>. We
+      <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>. Iris
       support multiple measurement tools, including
       <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
-      and <a href="https://github.com/cmand/yarrp">Yarrp</a>.
+      and <a href="https://github.com/cmand/yarrp">Yarrp</a> as well as constant-flow-id Ping.
     </p>
     <div style="padding-top: 50px"></div>
   </div>
