@@ -114,7 +114,7 @@
         Run your own Iris instance, or contribute to the project
       </h3>
       <p>
-        We provide Docker images for users who want to run their owninstance of Iris.<br />
+        We provide Docker images for users who want to run their own instance of Iris.<br />
         Iris is fully open-source and released under a liberal software license, feel free to make you own changes to its
         code.<br />
       </p>
@@ -135,7 +135,7 @@
       supports multiple measurement tools, including
       <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
       and <a href="https://github.com/cmand/yarrp">Yarrp</a> as well as constant-flow-id Ping.<br />
-      It's is built from widly used open-source tools and libraries like
+      It's is built from widely used open-source tools and libraries like
       <a href="https://clickhouse.com">Clickhouse</a>, <a href="https://redis.io">Redis</a> or <a href="https://min.io">MinIO</a> to favor reliability, maintainability and scalability.
     </p>
     <div style="padding-top: 50px"></div>
