@@ -10,8 +10,8 @@
       <h1 class="uk-article-title uk-text-bold">Iris</h1>
 
       <p class="uk-text-lead">
-        On this website, we provide internet scale route traces datasets and we offer
-        researchers the ability to run their own measurements using our open-source platform Iris.
+        Iris provides internet scale route trace datasets and allow
+        researchers to run their own measurements.
       </p>
 
       <hr class="uk-margin" />
@@ -32,16 +32,16 @@
           GraphML</a
         >
         for easy use with existing tools.
-        We currently provide two datasets:
+        Iris currently provides two datasets:
         <ul>
           <li>
-            <b>Exhaustive</b>: we perform multipath traces towards every routed IPv4 address prefixes from our vantage point located in Paris at 100,000pps with ICMP probes.
-            These measurements are made every weeks and discovers around 2 million IPv4 prefixes and 5 million links.
+            <b>Exhaustive</b>: multipath traces towards every routed IPv4 address prefixes from our laboratory in Paris at 100,000 pps with ICMP probes.
+            These measurements are made weekly and discover around 2 million IPv4 infrastructure addresses and 5 million links between them.
           </li>
           <li>
-            <b>Zeph</b>: we perform multipath traces using our open-source orchestrator for distributed IP tracing <a href="https://github.com/dioptra-io/zeph">Zeph</a>
-            based on a reiforcment learning approach to optimize the discovery of interfaces and links.
-            We are able to rapidly ramp up the number of discovery up to 3 million nodes and 16 million links using 5 <a href="https://cloud.google.com" >GCP</a> instances probing at 100,000pps 2 millions prefixes with ICMP probes.
+            <b>Zeph</b>: multipath traces that are coordinated among multiple vantage points so as to achieve high coverage of the discoverable IPv4 infrastructure addresses.
+            These measurements are conducted occasionally using <a href="https://github.com/dioptra-io/zeph">Zeph</a> algorithm from five <a href="https://cloud.google.com" >GCP</a> instances probing at 100,000 pps towards 2 million prefixes with ICMP probes
+            and discover around 3 million IPv4 infrastructure addresses and 17 million links between them.
           </li>
         </ul>
       </p>
@@ -85,7 +85,7 @@
         Run your own measurements from agents across the internet
       </h3>
       <p>
-        Iris offers a RESTful API for running your own IPv4 and IPv6 ping and
+        Iris offers a RESTful API for running your own IPv4 and IPv6 pings and
         route traces from the vantage points provided by the
         <a href="https://www.edge-net.org"> EdgeNet</a> testbed. If you prefer,
         you can use this website's graphical interface to run your measurements.
@@ -111,13 +111,12 @@
 
       <hr class="uk-margin" />
       <h3 class="uk-h3 tm-heading-fragment">
-        Contribute to Iris, or run your own instance
+        Run your own Iris instance, or contribute to the project
       </h3>
       <p>
-        Iris is fully open-source, feel free to make you own changes to its
+        We provide Docker images for users who want to run their owninstance of Iris.<br />
+        Iris is fully open-source and released under a liberal software license, feel free to make you own changes to its
         code.<br />
-        We also provide Docker images for the users who wants to run their own
-        instance of Iris.
       </p>
       <a
         class="uk-button uk-button-default"
@@ -129,13 +128,15 @@
     <hr class="uk-margin" />
     <h3 class="uk-h3 tm-heading-fragment">About Iris</h3>
     <p>
-      Iris is an open-source internet measurement platform developed and
+      Iris is an orchestrator for conducting internet measurements from multiple distributed measurement agents. It is developed and
       maintained by the
       <a href="https://dioptra.io/">Dioptra</a> group at
       <a href="https://www.sorbonne-universite.fr">Sorbonne Université</a>. Iris
-      support multiple measurement tools, including
+      supports multiple measurement tools, including
       <a href="https://github.com/dioptra-io/diamond-miner">Diamond-Miner</a>
-      and <a href="https://github.com/cmand/yarrp">Yarrp</a> as well as constant-flow-id Ping.
+      and <a href="https://github.com/cmand/yarrp">Yarrp</a> as well as constant-flow-id Ping.<br />
+      It's is built from widly used open-source tools and libraries like
+      <a href="https://clickhouse.com">Clickhouse</a>, <a href="https://redis.io">Redis</a> or <a href="https://min.io">MinIO</a> to favor reliability, maintainability and scalability.
     </p>
     <div style="padding-top: 50px"></div>
   </div>
