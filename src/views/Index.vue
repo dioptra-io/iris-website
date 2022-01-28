@@ -41,7 +41,7 @@
           <li>
             <b>Zeph</b>: multipath traces that are coordinated among multiple vantage points so as to achieve high coverage of the discoverable IPv4 infrastructure addresses.
             These measurements are conducted occasionally using <a href="https://github.com/dioptra-io/zeph">Zeph</a> algorithm from five <a href="https://cloud.google.com" >GCP</a> instances probing at 100,000 pps towards 2 million prefixes with ICMP probes
-            and discover around 3 million IPv4 infrastructure addresses and 17 million links between them.
+            and discover around 3 million IPv4 infrastructure addresses and 20 million links between them.
           </li>
         </ul>
       </p>

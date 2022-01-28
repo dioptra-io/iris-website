@@ -16,7 +16,7 @@
         using <a href="https://github.com/dioptra-io/zeph">Zeph</a> algorithm
         from five <a href="https://cloud.google.com">GCP</a> instances probing
         at 100,000 pps towards 2 million prefixes with ICMP probes and discover
-        around 3 million IPv4 infrastructure addresses and 17 million links
+        around 3 million IPv4 infrastructure addresses and 20 million links
         between them.
       </p>
 
