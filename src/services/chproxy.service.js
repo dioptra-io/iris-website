@@ -10,7 +10,7 @@ class ChProxyService {
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
         ).then(response => {
             var credentials = response.data;
-            return `${credentials.chproxy_url}&user=${credentials.chproxy_username}&password=${credentials.chproxy_password}&query=${query}`
+            return `${credentials.clickhouse.base_url}&user=${credentials.clickhouse.username}&password=${credentials.clickhouse.password}&query=${query}`
         })
     }
     query(query) {
