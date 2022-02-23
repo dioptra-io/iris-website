@@ -9,14 +9,14 @@ class S3Service {
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
         ).then(response => {
             var credentials = response.data;
-            var s3_endpoint = new URL(credentials.s3_host).hostname;
+            var s3_endpoint = new URL(credentials.s3.endpoint_url).hostname;
             var s3Client = new Minio.Client({
                 endPoint: s3_endpoint,
                 port: 443,
                 useSSL: true,
-                accessKey: credentials.s3_access_key_id,
-                secretKey: credentials.s3_secret_access_key,
-                sessionToken: credentials.s3_session_token,
+                accessKey: credentials.s3.aws_access_key_id,
+                secretKey: credentials.s3.aws_secret_access_key,
+                sessionToken: credentials.s3.aws_session_token,
             });
 
             var objectsStream = s3Client.listObjectsV2(
@@ -43,14 +43,14 @@ class S3Service {
             process.env.VUE_APP_BACKEND_URL + '/users/me/services',
         ).then(response => {
             var credentials = response.data;
-            var s3_endpoint = new URL(credentials.s3_host).hostname;
+            var s3_endpoint = new URL(credentials.s3.endpoint_url).hostname;
             var s3Client = new Minio.Client({
                 endPoint: s3_endpoint,
                 port: 443,
                 useSSL: true,
-                accessKey: credentials.s3_access_key_id,
-                secretKey: credentials.s3_secret_access_key,
-                sessionToken: credentials.s3_session_token,
+                accessKey: credentials.s3.aws_access_key_id,
+                secretKey: credentials.s3.aws_secret_access_key,
+                sessionToken: credentials.s3.aws_session_token,
             });
 
             return s3Client.presignedGetObject(bucket, object, 60 * 60, {});
