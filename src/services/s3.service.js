@@ -14,9 +14,9 @@ class S3Service {
                 endPoint: s3_endpoint,
                 port: 443,
                 useSSL: true,
-                accessKey: credentials.s3.access_key_id,
-                secretKey: credentials.s3.secret_access_key,
-                sessionToken: credentials.s3.session_token,
+                accessKey: credentials.s3.aws_access_key_id,
+                secretKey: credentials.s3.aws_secret_access_key,
+                sessionToken: credentials.s3.aws_session_token,
             });
 
             var objectsStream = s3Client.listObjectsV2(
@@ -48,9 +48,9 @@ class S3Service {
                 endPoint: s3_endpoint,
                 port: 443,
                 useSSL: true,
-                accessKey: credentials.s3.access_key_id,
-                secretKey: credentials.s3.secret_access_key,
-                sessionToken: credentials.s3.session_token,
+                accessKey: credentials.s3.aws_access_key_id,
+                secretKey: credentials.s3.aws_secret_access_key,
+                sessionToken: credentials.s3.aws_session_token,
             });
 
             return s3Client.presignedGetObject(bucket, object, 60 * 60, {});
