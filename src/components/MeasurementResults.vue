@@ -7,6 +7,7 @@
     <a
       v-if="result.format !== undefined"
       class="uk-button uk-button-primary"
+      download
       :href="result.url"
     >
       {{ result.format }}
