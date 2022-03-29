@@ -21,19 +21,19 @@
       <table class="uk-table uk-table-justify uk-table-divider">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Email</th>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>Registration date</th>
             <th>Verify</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="user in content.results" :key="user.id">
-            <td>{{ user.id }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.firstname }}</td>
             <td>{{ user.lastname }}</td>
+            <td>{{ formatTime(user.creation_time) }}</td>
             <td>
               <button
                 v-on:click="verifyUser(user)"
@@ -109,6 +109,13 @@ export default {
       UserService.enableProbing(user.id).then((response) => {
         this.fetchNonVerifiedUsers();
       });
+    },
+
+    formatTime(time) {
+      if (time === null) {
+        return "";
+      }
+      return new Date(time).toLocaleString();
     },
   },
 };
