@@ -20,7 +20,7 @@
       </h3>
       <p>
         Iris performs regular route traces of the load-balanced paths from a
-        small number of vantage points to all routed IPv4 address prefixes. You
+        small number of vantage points to all routed IPv4 address prefixes. <!-- You
         can download these traces in a variety of formats, including
         <a href="https://atlas.ripe.net">RIPE Atlas JSON</a>,
         <a href="https://www.caida.org/catalog/software/scamper/"
@@ -31,7 +31,7 @@
         >
           GraphML</a
         >
-        for easy use with existing tools.
+        for easy use with existing tools. -->
         Iris currently provides two datasets:
         <ul>
           <li>
