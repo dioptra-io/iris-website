@@ -40,11 +40,11 @@
                 type="button"
                 uk-icon="check"
               ></button>
-              <button
-                v-on:click="enableProbing(user)"
-                type="button"
-                uk-icon="bolt"
-              ></button>
+<!--              <button-->
+<!--                v-on:click="enableProbing(user)"-->
+<!--                type="button"-->
+<!--                uk-icon="bolt"-->
+<!--              ></button>-->
             </td>
           </tr>
         </tbody>
@@ -69,7 +69,7 @@ export default {
     return {
       content: "",
       n_pages: 0,
-      n_items_per_page: 10,
+      n_items_per_page: 25,
       current_page: 1,
     };
   },
