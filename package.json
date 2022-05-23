@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "filesize": "^8.0.7",
     "lock": "^1.1.0",
     "minio": "^7.0.25",
     "node-forge": ">=1.0.0",
@@ -20,12 +21,12 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-router": "^4.5.15",
     "@vue/cli-plugin-vuex": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
     "@vue/compiler-sfc": "^3.0.0",
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.2.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "glob-parent": ">=5.1.2",
@@ -42,7 +43,7 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "parser": "@babel/eslint-parser"
     },
     "rules": {}
   },
