@@ -46,7 +46,7 @@
           <ul class="uk-navbar-nav uk-visible@m"></ul>
 
           <ul v-if="!loggedIn" class="uk-navbar-nav uk-visible@m">
-            <li><a href="/#/register">Register</a></li>
+<!--            <li><a href="/#/register">Register</a></li>-->
             <li><a href="/#/login">Login</a></li>
           </ul>
           <ul v-else class="uk-navbar-nav uk-visible@m">

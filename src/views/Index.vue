@@ -46,14 +46,14 @@
         </ul>
       </p>
 
-      <router-link
-        v-if="!loggedIn"
-        class="uk-button uk-button-primary"
-        :to="{
-          name: 'Register',
-        }"
-        ><span uk-icon="icon: sign-in"></span> Register</router-link
-      >
+<!--      <router-link-->
+<!--        v-if="!loggedIn"-->
+<!--        class="uk-button uk-button-primary"-->
+<!--        :to="{-->
+<!--          name: 'Register',-->
+<!--        }"-->
+<!--        ><span uk-icon="icon: sign-in"></span> Register</router-link-->
+<!--      >-->
       <router-link
         v-else-if="loggedIn && !verified"
         class="uk-button uk-button-primary"
@@ -93,7 +93,10 @@
         You can check the live status of the platform
         <a href="https://dioptra-io.github.io/iris-uptime/">here</a>.
       </p>
-      <p></p>
+      <p>
+        Iris has been in constant evolution, and at the moment we are not accepting new user registrations.
+        Please feel free to contact us if you have any questions about the platform.
+      </p>
       <a
         v-if="!loggedIn || (loggedIn && !probingEnabled)"
         class="uk-button uk-button-primary"
