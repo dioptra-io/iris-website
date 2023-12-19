@@ -22,16 +22,16 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.5.4",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-router": "^5.0.8",
-    "@vue/cli-plugin-vuex": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.0.0",
-    "eslint": "^8.2.0",
+    "@vue/cli-plugin-babel": "^5.0",
+    "@vue/cli-plugin-router": "^5.0",
+    "@vue/cli-plugin-vuex": "^5.0",
+    "@vue/cli-service": "^5.0",
+    "@vue/compiler-sfc": "^3.3",
+    "eslint": "^8",
     "eslint-plugin-vue": "^7.0",
     "glob-parent": ">=5.1.2",
-    "less": "^4.0",
-    "less-loader": "^5.0"
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0"
   },
   "eslintConfig": {
     "root": true,
