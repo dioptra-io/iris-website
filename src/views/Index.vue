@@ -55,7 +55,7 @@
 <!--        ><span uk-icon="icon: sign-in"></span> Register</router-link-->
 <!--      >-->
       <router-link
-        v-else-if="loggedIn && !verified"
+        v-if="loggedIn && !verified"
         class="uk-button uk-button-primary"
         :to="{
           name: 'Profile',
