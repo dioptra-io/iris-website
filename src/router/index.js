@@ -8,7 +8,7 @@ import MeasurementsZeph from '../views/MeasurementsZeph.vue'
 import MeasurementsMine from '../views/MeasurementsMine.vue'
 import NewMeasurement from '../views/NewMeasurement.vue'
 import PageNotFound from '../views/404.vue'
-import Register from '../views/Register.vue'
+// import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import SQL from '../views/SQL.vue'
 
