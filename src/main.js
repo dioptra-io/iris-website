@@ -6,7 +6,7 @@ import router from './router'
 import store from './store';
 
 
-import Navbar from "@/components/Navbar.vue";
+import Navbar from "./components/Navbar.vue";
 
 createApp(App)
     .use(router, axios)

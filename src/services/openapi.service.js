@@ -14,7 +14,7 @@ class OpenAPIService {
                     }
                 }
                 return mapping;
-            })
+            }).catch(() => console.log('openapi request error'))
     }
 }
 

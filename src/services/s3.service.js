@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-var Minio = require('minio')
+import * as Minio from 'minio'
 
 
 class S3Service {
